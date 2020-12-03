@@ -1,0 +1,1244 @@
+a{
+	color: #000!important;
+}
+a:hover{
+	text-decoration: none!important;
+}
+ul{
+	list-style: none;
+	margin-bottom: 0px!important;
+}
+
+/*HOME*/
+.wp-header {
+    /*background-color: #FFE6EE;*/
+	background-color: #E79E9E;
+	padding: 11px 0px;
+}
+.login-list{
+	display: flex;
+}
+.menu-list li a{
+	color: #fff!important;
+	font-size: 18px;
+}
+.login-list li a{
+	color: #fff!important;
+	font-size: 18px;
+	transition: 0.4s;
+}
+.login-list li {
+    margin-right: 15px;
+}
+.menu-list li a:hover{
+	color: #FFE6EE!important;
+	transition: 0.4s;
+}
+.login-list li a:hover{
+	color: #FFE6EE!important;
+	transition: 0.4s;
+}
+.wp-main-content{
+	background-color: #FFE6EE;
+	padding: 40px 0px;
+}
+.wp-form-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.form-search{
+    display: flex;
+}
+.btn-search button {
+    background-color: #E79E9E;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 20px;
+    outline: none;
+    color: #fff;
+    transition: 0.4s;
+    font-size: 18px;
+}
+.btn-search {
+    margin-top: 20px;
+}
+.select-form{
+	width: 16%;
+}
+.select-form:last-child{
+	margin-right: 10px;
+}
+.select-form select {
+    width: 100%;
+}
+.btn-search button:hover{
+	background-color: #fff;
+	color: #E79E9E;
+	transition: 0.4s;
+}
+.room-item {
+    display: flex;
+    width: 48%;
+    margin-bottom: 30px;
+    border: 1px solid #FFE6EE;
+    padding: 15px 15px;
+}
+.room-img--link {
+    width: 230px;
+    display: block;
+}
+.room-img--link img {
+    width: 100%;
+    border-radius: 5px;
+}
+.wp-room {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 50px;
+    padding: 10px 20px;
+    padding-top: 40px;
+    background-color: #fff;
+    justify-content: space-around;
+}
+.room-txt {
+    margin-left: 10px;
+}
+.room-txt a {
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.4s;
+}
+.room-txt a:hover{
+	color: #E79E9E!important;
+	transition: 0.4s;
+}
+.room-txt p {
+    margin-bottom: 0px;
+}
+.wp-footer {
+    background-color: #fff;
+    padding: 30px 0px;
+}
+.col-footer-app p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.img-app {
+    margin-top: 7px;
+}
+.wp-ul-list {
+    margin-left: -38px;
+}
+.ul-list li a{
+	transition: 0.4s;
+}
+.ul-list li a:hover{
+	color: #E79E9E!important;
+	transition: 0.4s;
+}
+.wp-footer-contact {
+    display: flex;
+}
+.footer-contact {
+    width: 40px;
+    height: 40px;
+    border-radius: 100px;
+    border: 1px solid #E79E9E;
+    margin-right: 7px;
+    text-align: center;
+    transition: 0.4s;
+}
+.footer-contact a {
+    display: block;
+    line-height: 35px;
+}
+.footer-contact:hover{
+	background-color: #E79E9E;
+	transition: 0.4s;
+}
+.footer-contact a svg{
+	transition: 0.4s;
+}
+.footer-contact:hover a svg{
+	color: #fff;
+	transition: 0.4s;
+}
+.room-txt--price {
+    color: #ff0000ba;
+    font-weight: 600;
+}
+.room-txt--size {
+    color: #959595;
+}
+.select-form label {
+    font-weight: 700;
+}
+@media (min-width:992px) and (max-width:1199px){
+	.room-img--link {
+	    width: 225px;
+	}
+	.wp-room{
+	    margin-top: 45px;
+	}
+	.wp-main-content{
+	    padding: 35px 0px;
+	}
+}
+@media (min-width:768px) and (max-width:991px){
+	.room-img--link {
+	    width: 230px;
+	}
+	.wp-room {
+	    margin-top: 30px;
+        padding: 10px 10px;
+    	padding-top: 22px;
+	}
+	.wp-main-content{
+	    padding: 25px 0px;
+	}
+	.form-search {
+	    flex-direction: column;
+	}
+	.select-form:last-child {
+	    margin-right: 0px;
+	}
+	.col-footer-app p {
+	    font-size: 17px;
+	}
+	.room-item{
+	    width: 100%;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.room-img--link {
+        width: 200px;
+	}
+	.wp-room {
+        margin-top: 25px;
+        padding: 10px 10px;
+	    padding-top: 12px;
+	}
+	.wp-main-content{
+	    padding: 25px 0px;
+	}
+	.form-search {
+	    flex-direction: column;
+	}
+	.select-form:last-child {
+	    margin-right: 0px;
+	}
+	.col-footer-app p {
+	    font-size: 17px;
+        margin-bottom: 7px;
+	}
+	.room-item{
+	    width: 100%;
+	    padding: 10px 10px;
+        margin-bottom: 20px;
+	}
+	.select-form {
+	    width: 32%;
+	}
+	.col-footer-app {
+	    margin-bottom: 22px;
+	}
+	.login-list li a{
+		font-size: 17px;
+	}
+	.room-txt a{
+		font-size: 17px;
+	}
+	.wp-footer{
+	    padding: 20px 0px;
+   		padding-bottom: 0px;
+	}
+}
+@media (max-width:575px){
+	.room-img--link {
+	    width: 150px;
+	}
+	.wp-room {
+	    margin-top: 20px;
+	    padding: 4px 3px;
+	    padding-top: 10px;
+	}
+	.wp-main-content {
+	    padding: 18px 0px;
+	}
+	.form-search {
+	    flex-direction: column;
+	}
+	.select-form:last-child {
+	    margin-right: 0px;
+	}
+	.col-footer-app p {
+	    font-size: 16px;
+        margin-bottom: 7px;
+	}
+	.room-item{
+	    width: 100%;
+        padding: 10px 10px;
+    	margin-bottom: 12px;
+	}
+	.select-form {
+	    width: 32%;
+        margin-bottom: 7px;
+	}
+	.col-footer-app {
+	    margin-bottom: 22px;
+	}
+	.login-list li a{
+		font-size: 16px;
+	}
+	.room-txt a {
+	    font-size: 15px;
+	}
+	.wp-form-search{
+		justify-content: space-around;
+	}
+	.menu-list li a{
+		font-size: 17px;
+	}
+	.btn-search{
+	    margin-top: 15px;
+    	text-align: center;
+	}
+	.btn-search button{
+	    font-size: 17px;
+	    padding: 4px 18px;
+	}
+	.ul-list li a{
+		font-size: 15px;
+	}
+	.room-txt p {
+	    font-size: 14px;
+	}
+	.wp-footer {
+	    padding: 15px 0px;
+	    padding-bottom: 0px;
+	}
+	.login-list{
+	    flex-direction: column;
+        text-align: right;
+	}
+	.wp-menu {
+	    margin-top: 10px;
+	}
+	.select-form label{
+	    font-size: 15px;
+	}
+}
+
+/*LOGIN*/
+.wp-login-page {
+    height: 100vh;
+}
+.login-txt--branch {
+    font-size: 50px;
+    font-weight: bold;
+    color: #E79E9E;
+}
+.login-txt-des {
+    font-size: 28px;
+    line-height: 32px;
+}
+.wp-login-form {
+    background-color: #fff;
+    padding: 30px 30px;
+    border-radius: 5px;
+}
+.login-form--item input {
+    width: 100%;
+}
+.login-form--btn button {
+    width: 100%;
+    border: none;
+    color: #fff;
+    background-color: #E79E9E;
+    border-radius: 5px;
+    padding: 16px;
+    font-size: 20px;
+    line-height: 20px;
+    outline: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.login-form--btn button:hover{
+	background-color: #e99393;
+	transition: 0.3s;
+}
+.login-form--item input {
+    outline: none;
+    border: 1px solid #dddfe2;
+    padding: 14px 16px;
+    border-radius: 5px;
+}
+.login-form--item {
+    margin-bottom: 16px;
+}
+.login-line {
+    width: 100%;
+    height: 1px;
+    background-color: #dddfe2;
+    margin-top: 30px;
+    margin-bottom: 28px;
+}
+.regis-btn {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    background-color: #b4b4b4;
+    padding: 14px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+.regis-btn:hover{
+	background-color: #acabab;
+	transition: 0.3s;
+}
+.regis-btn a{
+	color: #fff!important;
+	display: block;
+	font-size: 18px;	
+}
+.login-txt {
+    padding-top: 90px;
+}
+.login-page {
+    padding-top: 100px;
+}
+@media (min-width:992px) and (max-width:1199px){
+	.login-page {
+	    padding-top: 80px;
+	}
+	.login-txt-des {
+	    font-size: 26px;
+	    line-height: 30px;
+	}
+	.wp-login-form{
+		padding: 28px 28px;
+	}
+}
+@media (min-width:768px) and (max-width:991px){
+	.login-page {
+	    padding-top: 70px;
+	}
+	.login-txt-des {
+	    font-size: 24px;
+	    line-height: 30px;
+	}
+	.wp-login-form{
+	    padding: 17px 10px;
+	}
+	.login-txt {
+	    padding-top: 70px;
+	}
+	.login-txt--branch{
+	    font-size: 42px;
+	}
+	.login-form--item {
+	    margin-bottom: 12px;
+	}
+	.login-form--btn button{
+		font-size: 18px;
+	    padding: 14px;
+	}
+	.login-line{
+	    margin-top: 27px;
+    	margin-bottom: 24px;
+	}
+	.regis-btn{
+		padding: 11px;
+	}
+	.regis-btn a{
+		font-size: 17px;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.login-page {
+        padding-top: 0;
+        text-align: center;
+	}
+	.login-txt-des {
+	    font-size: 24px;
+	    line-height: 10px;
+	}
+	.wp-login-form {
+	    padding: 25px 25px;
+	}
+	.login-txt {
+	    padding-top: 45px;
+	    text-align: center;
+	    padding-bottom: 25px;
+	}
+	.login-txt--branch{
+	    font-size: 42px;
+	}
+	.login-form--item {
+	    margin-bottom: 14px;
+	}
+	.login-form--btn button{
+		font-size: 18px;
+	    padding: 14px;
+	}
+	.login-line{
+	    margin-top: 27px;
+    	margin-bottom: 24px;
+	}
+	.regis-btn{
+		padding: 11px;
+	}
+	.regis-btn a{
+		font-size: 17px;
+	}
+}
+@media (max-width:575px){
+	.login-page {
+        padding-top: 0;
+        text-align: center;
+	}
+	.login-txt-des {
+	    font-size: 18px;
+        line-height: 24px;
+	}
+	.wp-login-form {
+	    padding: 20px 20px;
+	}
+	.login-txt {
+	    padding-top: 23px;
+	    text-align: center;
+        padding-bottom: 5px;
+	}
+	.login-txt--branch{
+	    font-size: 30px;
+	    margin-bottom: 8px;
+	}
+	.login-form--item {
+	    margin-bottom: 11px;
+	}
+	.login-form--btn button {
+	    font-size: 17px;
+	    padding: 13px;
+	}
+	.login-line {
+	    margin-top: 22px;
+	    margin-bottom: 20px;
+	}
+	.regis-btn{
+		padding: 9px;
+	}
+	.regis-btn a {
+	    font-size: 16px;
+	}
+	.login-form--item input{
+		padding: 13px 15px;
+	}
+}
+
+/*ADMIN*/
+.title-admin {
+    width: 100%;
+}
+.title-admin p {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+}
+.img-admin-room {
+    width: 200px;
+}
+.img-admin-room img {
+    width: 100%;
+    border-radius: 5px;
+}
+.admin-room {
+    background-color: #fff;
+    padding: 20px 20px;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+.ad-room-txt {
+    margin-left: 20px;
+}
+.wp-btn-post {
+    display: flex;
+}
+.btn-delete button {
+    border: none;
+}
+.btn-delete button {
+    border: none;
+    outline: none;
+    padding: 7px 10px;
+    color: #fff;
+    background-color: #999999d9;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-post {
+    background-color: #fab3bf;
+    border-radius: 5px;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+.btn-post a {
+    padding: 8px 7px;
+    font-size: 17px;
+    line-height: 17px;
+    display: block;
+    color: #fff!important;
+}
+.btn-post:hover{
+	background-color: #E79E9E;
+	transition: 0.3s;
+}
+.btn-delete button:hover{
+	background-color: #999999ed;
+	transition: 0.3s;
+}
+.admin-page {
+    width: 100%;
+}
+.ad-room-item {
+    border: 1px solid #FFE6EE;
+    padding: 15px 20px;
+    display: flex;
+    margin-bottom: 10px;
+}
+.ad-room-info {
+    display: flex;
+    flex: 1;
+}
+.btn-edit-room {
+    width: 100px;
+    margin: auto;
+}
+.ckhbox-del {
+    width: 50px;
+    margin: auto;
+}
+.btn-edit-room a {
+    display: block;
+    font-size: 18px;
+    background-color: #E79E9E;
+    border-radius: 5px;
+    color: #fff!important;
+    text-align: center;
+    padding: 4px;
+    transition: 0.3s;
+}
+.btn-edit-room a:hover{
+	background-color: #f19393;
+}
+.ad-room-txt--name {
+    font-size: 18px;
+    font-weight: 500;
+}
+.ad-room-txt p span {
+    font-weight: bold;
+}
+.wp-ad-room-info {
+    flex: 1;
+    display: flex;
+}
+@media (min-width:992px) and (max-width:1199px){
+
+}
+@media (min-width:768px) and (max-width:991px){
+	.title-admin p{
+	    font-size: 28px;
+	}
+	.admin-room{
+	    padding: 20px 10px;
+	    margin-top: 18px;
+	}
+	.btn-edit-room{
+		width: 90px;
+	}
+	.btn-edit-room a{
+	    font-size: 17px;
+	}
+	.ad-room-txt p {
+	    margin-bottom: 5px;
+	    line-height: 22px;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.title-admin p{
+	    font-size: 28px;
+	}
+	.admin-room{
+	    padding: 10px 10px;
+	    margin-top: 18px;
+	}
+	.btn-edit-room{
+		width: 90px;
+	    margin-top: 10px;
+	}
+	.btn-edit-room a{
+	    font-size: 17px;
+	}
+	.ad-room-txt p {
+	    margin-bottom: 2px;
+	    line-height: 22px;
+	}
+	.wp-ad-room-info{
+	    flex-direction: column;
+	}
+	.img-admin-room {
+	    width: 250px;
+	}
+	.ad-room-txt {
+	    margin-left: 12px;
+	}
+	.ad-room-txt p:first-child {
+	    margin-bottom: 5px;
+	}
+	.ad-room-txt--name {
+	    font-size: 17px;
+	    font-weight: bold;
+	}
+	.ckhbox-del{
+		width: 40px;
+	}
+}
+@media (max-width:575px){
+	.title-admin p {
+	    font-size: 22px;
+	}
+	.admin-room {
+	    padding: 8px 7px;
+	    margin-top: 15px;
+	}
+	.btn-edit-room{
+		width: 90px;
+	    margin-top: 10px;
+	}
+	.btn-edit-room a{
+	    font-size: 17px;
+	}
+	.ad-room-txt p {
+	    margin-bottom: 2px;
+	    line-height: 22px;
+	}
+	.wp-ad-room-info{
+	    flex-direction: column;
+	}
+	.img-admin-room {
+	    width: 245px;
+	    margin: auto;
+	}
+	.ad-room-txt {
+	    margin-left: 14px;
+	    margin-top: 10px;
+	}
+	.ad-room-txt p:first-child {
+	    margin-bottom: 5px;
+	}
+	.ad-room-txt--name {
+	    font-size: 17px;
+	    font-weight: bold;
+	}
+	.ckhbox-del{
+		width: 40px;
+	}
+	.btn-post a{
+		font-size: 16px;
+	    padding: 10px 5px;
+	}
+	.btn-post{
+	    margin-right: 6px;
+	}
+	.wp-btn-post{
+		justify-content: center;
+	}
+	.ad-room-info{
+		flex-direction: column;
+	}
+}
+
+/*EDIT*/
+.title-form {
+    font-size: 18px;
+    font-weight: bold;
+    width: 180px;
+}
+.wp-form-edit {
+    width: 100%;
+}
+.form-edit {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 20px 20px;
+}
+.form-edit--item {
+    display: flex;
+    margin-bottom: 20px;
+}
+.inp-item {
+    display: flex;
+    margin-bottom: 7px;
+}
+.inp-item label {
+    width: 100px;
+    font-weight: 500;
+}
+.info-user--name label {
+    width: 100px;
+    font-weight: 500;
+}
+.info-user--name{
+	margin-bottom: 7px;
+}
+.form-edit {
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 40px 50px;
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+.form-edit--item input {
+    flex: 1;
+}
+.wp-btn-update input {
+    background-color: #E79E9E;
+    border: none;
+    outline: none;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 6px 18px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+.wp-btn-update {
+    margin-top: 35px;
+}
+.wp-btn-update input:hover{
+	background-color: #e58f8f;
+	transition: 0.3s;
+}
+@media (min-width:992px) and (max-width:1199px){
+
+}
+@media (min-width:768px) and (max-width:991px){
+	.form-edit{
+		width: 100%;
+		padding: 35px 40px;
+	}
+	.wp-btn-update {
+	    margin-top: 30px;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.form-edit{
+		width: 100%;
+		padding: 25px 30px;
+		margin-top: 25px;
+	}
+	.wp-btn-update {
+	    margin-top: 30px;
+	}
+	.title-form{
+	    width: 135px;
+	    font-size: 17px;
+	}
+	.wp-btn-update input{
+		padding: 5px 15px;
+		font-size: 17px;
+	}
+}
+@media (max-width:575px){
+	.form-edit{
+		width: 100%;
+		padding: 10px 12px;
+    	margin-top: 20px;
+	}
+	.wp-btn-update {
+	    margin-top: 15px;
+	}
+	.title-form{
+	    width: 100%;
+	    font-size: 17px;
+	}
+	.wp-btn-update input{
+		padding: 5px 15px;
+		font-size: 17px;
+	}
+	.form-edit--item{
+		flex-direction: column;
+		margin-bottom: 15px;
+	}
+}
+
+/*ROOM*/
+.title-room p {
+    font-size: 24px;
+    font-weight: bold;
+}
+.room-inf {
+    display: flex;
+    margin-top: 35px;
+}
+.room-inf--img {
+    width: 400px;
+}
+.room-inf--img img {
+    width: 100%;
+    border-radius: 5px;
+}
+.room-inf--detail {
+    margin-left: 30px;
+}
+.room-inf--detail__item p {
+    font-size: 18px;
+    margin-bottom: 13px;
+}
+.room-inf--detail__item p span{
+	font-weight: bold;
+}
+.room-page {
+    width: 80%;
+    margin: auto;
+    background-color: #fff;
+    padding: 30px 30px;
+    border-radius: 5px;
+}
+.room-des {
+    border: 1px solid #dddfe2;
+    padding: 20px 20px;
+    margin-top: 30px;
+}
+.room-des--title p {
+    font-size: 18px;
+    font-weight: bold;
+}
+.phone-contact {
+    display: flex;
+}
+.phone-contact a {
+    margin-left: 5px;
+    color: #E79E9E!important;
+    transition: 0.3s;
+}
+.room-des--content__txt p {
+    font-size: 17px;
+}
+.phone-contact a:hover{
+	color: #eb7c7c!important;
+	transition: 0.3s;
+}
+.cmt-user--item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.user--ava {
+    width: 60px;
+    border: 1px solid;
+    text-align: center;
+    border-radius: 100px;
+    height: 60px;
+    line-height: 60px;
+}
+.user--ava svg {
+    font-size: 22px;
+}
+.user--cmt {
+    display: flex;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+.user--name p {
+    font-size: 18px;
+    color: #e79e9e;
+    font-weight: bold;
+}
+.user--cmt__cnt p {
+    font-size: 18px;
+}
+.user--cmt__cnt {
+    margin-left: 8px;
+}
+.inp-add-cmt--cnt textarea {
+    width: 100%;
+    padding: 10px 10px;
+    outline: none;
+}
+.inp-add-cmt--cnt {
+    margin-bottom: -14px;
+}
+.inp-add-cmt {
+    margin-top: 50px;
+}
+.user-rating {
+    margin-top: 30px;
+}
+.rating-chkbox {
+    display: flex;
+}
+.rating-chkbox--item {
+    margin-right: 20px;
+}
+@media (min-width:992px) and (max-width:1199px){
+	.title-room p {
+	    font-size: 23px;
+	}
+	.room-des{
+		margin-top: 25px;
+	}
+	.room-page{
+		width: 90%;
+	}
+}
+@media (min-width:768px) and (max-width:991px){
+	.title-room p {
+	    font-size: 21px;
+	}
+	.room-des{
+		margin-top: 20px;
+	}
+	.room-page{
+		width: 100%;
+	}
+	.room-inf--detail {
+	    margin-left: 25px;
+	}
+	.room-inf--img {
+	    width: 340px;
+	}
+	.room-inf--detail__item p {
+	    font-size: 17px;
+	    margin-bottom: 9px;
+	}
+	.room-inf {
+	    margin-top: 30px;
+	}
+	.room-des--content__txt p{
+		margin-bottom: 10px;
+	}
+	.inp-add-cmt {
+	    margin-top: 40px;
+	}
+	.rating-chkbox--item {
+	    margin-right: 18px;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.title-room p {
+	    font-size: 18px;
+	}
+	.room-des{
+		margin-top: 20px;
+		padding: 15px 17px;
+	}
+	.room-page{
+		width: 100%;
+		padding: 20px 20px;
+	}
+	.room-inf--detail {
+	    margin-left: 15px;
+	}
+	.room-inf--img {
+        width: 230px;
+	}
+	.room-inf--detail__item p {
+	    font-size: 16px;
+    	margin-bottom: 5px;
+	}
+	.room-inf {
+	    margin-top: 24px;
+	}
+	.room-des--content__txt p {
+	    margin-bottom: 5px;
+	}
+	.inp-add-cmt {
+	    margin-top: 40px;
+	}
+	.user--cmt{
+	    margin-left: 15px;
+	}
+	.user--ava {
+	    width: 50px;
+	    height: 50px;
+	    line-height: 50px;
+	}
+	.user--ava svg {
+	    font-size: 20px;
+	}
+	.user--cmt__cnt p {
+	    font-size: 17px;
+	}
+	.user--name p {
+	    font-size: 17px;
+	}
+	.cmt-user--item{
+		margin-bottom: 16px;
+	}
+	.rating-chkbox--item {
+	    margin-right: 17px;
+	}
+	.user-rating {
+	    margin-top: 28px;
+	}
+}
+@media (max-width:575px){
+	.title-room p {
+	    font-size: 18px;
+	}
+	.room-des{
+		margin-top: 15px;
+		padding: 10px 12px;
+	}
+	.room-page{
+		width: 100%;
+		padding: 20px 20px;
+	}
+	.room-inf--detail {
+	    margin-left: 0px;
+	    margin-top: 15px;
+	}
+	.room-inf--img {
+        width: 100%;
+	}
+	.room-inf--detail__item p {
+	    font-size: 17px;
+    	margin-bottom: 5px;
+	}
+	.room-inf {
+	    margin-top: 20px;
+	    flex-direction: column;
+	}
+	.room-des--content__txt p {
+	    margin-bottom: 5px;
+	}
+	.room-des--title p {
+	    font-size: 17px;
+	    margin-bottom: 8px;
+	}
+	.inp-add-cmt {
+	    margin-top: 30px;
+	}
+	.user--cmt{
+	    margin-left: 15px;
+	}
+	.user--ava {
+	    width: 45px;
+	    height: 45px;
+	    line-height: 45px;
+	}
+	.user--ava svg {
+	    font-size: 18px;
+	}
+	.user--cmt__cnt p {
+	    font-size: 16px;
+	}
+	.user--name p {
+	    font-size: 16px;
+	}
+	.cmt-user--item{
+		margin-bottom: 12px;
+	}
+	.rating-chkbox--item {
+	    margin-right: 17px;
+	}
+	.user-rating {
+	    margin-top: 28px;
+	}
+	.rating-chkbox {
+	    flex-direction: column;
+	}
+}
+
+/*COMPANY*/
+.list-account {
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 30px 20px;
+}
+.acc-link {
+    background-color: #E79E9E;
+    border-radius: 5px;
+    padding: 8px 17px;
+    display: inline-block;
+    transition: 0.3s;
+    color: #fff!important;
+}
+.acc-link:hover{
+	transition: 0.3s;
+	background-color: #f19393;
+}
+.list-acc--table {
+    margin-top: 40px;
+}
+.company-page {
+    background-color: #fff;
+    margin-top: 70px;
+    padding: 40px 20px;
+}
+.wp-btn-post-com{
+	margin-left: 30px;
+}
+.wp-btn-post-com {
+    margin-left: 20px;
+    margin-bottom: -15px;
+}
+@media (min-width:992px) and (max-width:1199px){
+
+}
+@media (min-width:768px) and (max-width:991px){
+	.company-page {
+	    margin-top: 55px;
+        padding: 35px 20px;
+	}
+	.acc-link{
+		padding: 7px 17px;
+	}
+	.list-acc--table {
+	    margin-top: 30px;
+	}
+}
+@media (min-width:576px) and (max-width: 767px){
+	.list-account{
+   		padding: 20px 5px;
+	}
+	.company-page {
+	    margin-top: 40px;
+	    padding: 20px 6px;
+	}
+	.acc-link {
+	    padding: 5px 14px;
+	}
+	.list-acc--table {
+	    margin-top: 24px;
+	}
+	.wp-btn-post-com {
+	    margin-left: 10px;
+	}
+}
+@media (max-width:575px){
+	.list-account {
+	    padding: 15px 0px;
+	}
+	.company-page {
+	    margin-top: 40px;
+	    padding: 20px 6px;
+	}
+	.acc-link {
+	    padding: 5px 12px;
+	}
+	.list-acc--table {
+	    margin-top: 18px;
+	}
+	.wp-btn-post-com {
+	    margin-left: 0px;
+	}
+	.list-acc--table {
+	    font-size: 15px;
+	}
+}
