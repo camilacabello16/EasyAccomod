@@ -1,6 +1,6 @@
 package com.easyaccomod.model;
 
-public class RoomTypeModel extends AbstractModel {
+public class RoomTypeModel extends AbstractModel<RoomTypeModel> {
 	private String type;
 	private String name;
 	public String getType() {

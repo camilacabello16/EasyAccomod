@@ -44,5 +44,10 @@ public class RoomService implements IRoomService {
 			roomDao.delete(id);
 		}
 	}
+
+	@Override
+	public List<RoomModel> findAll() {
+		return roomDao.findAll();
+	}
 	
 }

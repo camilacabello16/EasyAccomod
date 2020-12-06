@@ -18,55 +18,64 @@
 								<div class="select-form">
 									<label>Loại tin</label>
 									<select>
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<c:forEach var="type" items="${types.listResult}">
+											<option>${type.name}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Tỉnh thành</label>
 									<select>
 										<option>Tất cả</option>
-										<option>Hà Nội</option>
-										<option>TP Hồ Chí Minh</option>
-										<option>Đà Nẵng</option>
+										<c:forEach var="city" items="${cities.listResult}">
+											<option>${city.city}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Quận huyện</label>
 									<select>
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<option>Tất cả</option>
+										<c:forEach var="location" items="${locations.listResult}">
+											<option>${location.district}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Đường phố</label>
 									<select>
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<option>Tất cả</option>
+										<c:forEach var="location" items="${locations.listResult}">
+											<option>${location.street}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Khoảng giá</label>
 									<select>
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<option>Chọn mức giá</option>
+										<option>Dưới 1 triệu</option>
+										<option>1 triệu - 2 triệu</option>
+										<option>2 triệu - 3 triệu</option>
+										<option>3 triệu - 4 triệu</option>
+										<option>4 triệu - 5 triệu</option>
+										<option>5 triệu - 6 triệu</option>
+										<option>6 triệu - 7 triệu</option>
+										<option>7 triệu - 8 triệu</option>
+										<option>8 triệu - 9 triệu</option>
+										<option>9 triệu - 10 triệu</option>
+										<option>Trên 10 triệu</option>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Diện tích</label>
 									<select>
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<option>Chọn diện tích</option>
+										<option>Dưới 20 m²</option>
+										<option>20m² - 30m²</option>
+										<option>30m² - 40m²</option>
+										<option>40m² - 50m²</option>
+										<option>Trên 50m²</option>
 									</select>
 								</div>
 							</div>
@@ -76,58 +85,21 @@
 						</form>
 					</div>
 					<div class="wp-room">
-						<div class="room-item">
-							<div class="room-img">
-								<a href="" class="room-img--link">
-									<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
-								</a>
+						<c:forEach var="room" items="${rooms.listResult }">
+							<div class="room-item">
+								<div class="room-img">
+									<a href="" class="room-img--link">
+										<img src="<c:url value='${room.image }'/>">
+									</a>
+								</div>
+								<div class="room-txt">
+									<a href="">${room.description}</a>
+									<p class="room-txt--price">${room.price} triệu/tháng</p>
+									<p class="room-txt--size">${room.area}m²</p>
+									<p class="room-txt--addr">${room.addressId}</p>
+								</div>
 							</div>
-							<div class="room-txt">
-								<a href="">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP</a>
-								<p class="room-txt--price">2.5 triệu/tháng</p>
-								<p class="room-txt--size">18m2</p>
-								<p class="room-txt--addr">Quận Gò Vấp, Hồ Chí Minh</p>
-							</div>
-						</div>
-						<div class="room-item">
-							<div class="room-img">
-								<a href="" class="room-img--link">
-									<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
-								</a>
-							</div>
-							<div class="room-txt">
-								<a href="">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP </a>
-								<p class="room-txt--price">2.5 triệu/tháng</p>
-								<p class="room-txt--size">18m2</p>
-								<p class="room-txt--addr">Quận Gò Vấp, Hồ Chí Minh</p>
-							</div>
-						</div>
-						<div class="room-item">
-							<div class="room-img">
-								<a href="" class="room-img--link">
-									<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
-								</a>
-							</div>
-							<div class="room-txt">
-								<a href="">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP </a>
-								<p class="room-txt--price">2.5 triệu/tháng</p>
-								<p class="room-txt--size">18m2</p>
-								<p class="room-txt--addr">Quận Gò Vấp, Hồ Chí Minh</p>
-							</div>
-						</div>
-						<div class="room-item">
-							<div class="room-img">
-								<a href="" class="room-img--link">
-									<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
-								</a>
-							</div>
-							<div class="room-txt">
-								<a href="">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP </a>
-								<p class="room-txt--price">2.5 triệu/tháng</p>
-								<p class="room-txt--size">18m2</p>
-								<p class="room-txt--addr">Quận Gò Vấp, Hồ Chí Minh</p>
-							</div>
-						</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>

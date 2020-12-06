@@ -1,6 +1,6 @@
 package com.easyaccomod.model;
 
-public class ChatModel extends AbstractModel {
+public class ChatModel extends AbstractModel<ChatModel> {
 	private Long userId;
 	private String content;
 	public Long getUserId() {

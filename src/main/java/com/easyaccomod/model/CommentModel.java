@@ -2,7 +2,7 @@ package com.easyaccomod.model;
 
 import java.sql.Timestamp;
 
-public class CommentModel extends AbstractModel {
+public class CommentModel extends AbstractModel<CommentModel> {
 	private Long userId;
 	private Long roomId;
 	private String content;

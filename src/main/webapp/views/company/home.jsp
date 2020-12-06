@@ -32,20 +32,15 @@
 								  </tr>
 							    </thead>
 							    <tbody>
-							      <tr>
-								    <td><input type="checkbox" name=""></td>
-								    <td>admin1</td>
-								    <td>123456</td>
-								    <td>Trần Thanh Hải</td>
-								    <td><a href="" class="acc-link">Sửa</a></td>
-								  </tr>
-								  <tr>
-								    <td><input type="checkbox" name=""></td>
-								    <td>admin2</td>
-								    <td>123456</td>
-								    <td>Nguyễn Văn Hùng</td>
-								    <td><a href="" class="acc-link">Sửa</a></td>
-								  </tr>
+							    	<c:forEach var="user" items="${users.listResult}">
+								      <tr>
+									    <td><input type="checkbox" name=""></td>
+									    <td>${user.userName }</td>
+									    <td>${user.password }</td>
+									    <td>${user.fullName }</td>
+									    <td><a href="" class="acc-link">Sửa</a></td>
+									  </tr>
+								  	</c:forEach>
 							    </tbody>
 							  </table>
 						  </div>
@@ -71,48 +66,35 @@
 							</div>
 						</div>
 						<div class="admin-room">
-							<div class="ad-room-item">
-								<div class="ckhbox-del">
-									<input type="checkbox" name="">
-								</div>
-								<div class="wp-ad-room-info">
-									<div class="ad-room-info">
-										<div class="img-admin-room">
-											<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
-										</div>
-										<div class="ad-room-txt">
-											<p class="ad-room-txt--name">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP</p>
-											<p><span>Giá:</span> 2.5 triệu/tháng</p>
-											<p><span>Địa chỉ:</span> Quận Gò Vấp, Hồ Chí Minh</p>
-											<p><span>Trạng thái:</span> Còn phòng</p>
-										</div>
+							<c:forEach var="room" items="${rooms.listResult }">
+								<div class="ad-room-item">
+									<div class="ckhbox-del">
+										<input type="checkbox" name="">
 									</div>
-									<div class="btn-edit-room">
-										<a href="">Cập nhật</a>
-									</div>
-								</div>
-							</div>
-							<div class="ad-room-item">
-								<div class="ckhbox-del">
-									<input type="checkbox" name="">
-								</div>
-								<div class="wp-ad-room-info">
-									<div class="ad-room-info">
-										<div class="img-admin-room">
-											<img src="<c:url value='https://static123.com/phongtro123/uploads/images/thumbs/450x300/fit/2020/11/03/2fa8bbd82e5bd005894a_1604408087.jpg'/>">
+									<div class="wp-ad-room-info">
+										<div class="ad-room-info">
+											<div class="img-admin-room">
+												<img src="<c:url value='${room.image }'/>">
+												
+											</div>
+											<div class="ad-room-txt">
+												<p class="ad-room-txt--name">${room.description }</p>
+												<p><span>Giá:</span> ${room.price } triệu/tháng</p>
+												<p><span>Địa chỉ:</span> ${room.addressId }</p>
+												<c:if test="${room.status == 1 }">
+													<p><span>Trạng thái:</span> Còn phòng</p>
+												</c:if>
+												<c:if test="${room.status == 0 }">
+													<p><span>Trạng thái:</span> Hết phòng</p>
+												</c:if>
+											</div>
 										</div>
-										<div class="ad-room-txt">
-											<p class="ad-room-txt--name">CHO THUÊ PHÒNG TRỌ MỚI 100%, PHƯỜNG 9, GÒ VẤP</p>
-											<p><span>Giá:</span> 2.5 triệu/tháng</p>
-											<p><span>Địa chỉ:</span> Quận Gò Vấp, Hồ Chí Minh</p>
-											<p><span>Trạng thái:</span> Còn phòng</p>
+										<div class="btn-edit-room">
+											<a href="">Cập nhật</a>
 										</div>
 									</div>
-									<div class="btn-edit-room">
-										<a href="">Cập nhật</a>
-									</div>
 								</div>
-							</div>
+							</c:forEach>
 						</div>
 					</div>
 				</div>

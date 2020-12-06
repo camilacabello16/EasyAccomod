@@ -35,6 +35,7 @@ public class RoomMapper implements RowMapper<RoomModel> {
 			room.setRating(resultSet.getInt("rating"));
 			room.setSeen(resultSet.getLong("seen"));
 			room.setPhone(resultSet.getString("phone"));
+			room.setStatus(resultSet.getInt("status"));
 			return room;
 		}catch(SQLException e) {
 			return null;

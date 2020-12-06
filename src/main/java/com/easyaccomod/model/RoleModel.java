@@ -1,6 +1,6 @@
 package com.easyaccomod.model;
 
-public class RoleModel extends AbstractModel {
+public class RoleModel extends AbstractModel<RoleModel> {
 	private String roleName;
 	private String roleCode;
 	public String getRoleName() {

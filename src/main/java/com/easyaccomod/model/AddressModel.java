@@ -1,6 +1,6 @@
 package com.easyaccomod.model;
 
-public class AddressModel extends AbstractModel {
+public class AddressModel extends AbstractModel<AddressModel> {
 	private String street;
 	private String district;
 	private Long cityId;

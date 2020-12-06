@@ -2,7 +2,7 @@ package com.easyaccomod.model;
 
 import java.sql.Timestamp;
 
-public class RoomModel extends AbstractModel {
+public class RoomModel extends AbstractModel<RoomModel> {
 	private Long addressId;
 	private String description;
 	private String price;
@@ -22,6 +22,7 @@ public class RoomModel extends AbstractModel {
 	private String createdBy;
 	private String modifiedBy;
 	private String phone;
+	private int status;
 	
 	public Timestamp getCreatedDate() {
 		return createdDate;
@@ -136,6 +137,12 @@ public class RoomModel extends AbstractModel {
 	}
 	public void setPhone(String phone) {
 		this.phone = phone;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	
 }

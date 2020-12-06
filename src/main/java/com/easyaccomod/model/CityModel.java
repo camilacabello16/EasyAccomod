@@ -1,6 +1,6 @@
 package com.easyaccomod.model;
 
-public class CityModel extends AbstractModel {
+public class CityModel extends AbstractModel<CityModel> {
 	private String city;
 
 	public String getCity() {
