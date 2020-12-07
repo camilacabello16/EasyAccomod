@@ -78,9 +78,9 @@
 										<option>Trên 50m²</option>
 									</select>
 								</div>
-							</div>
-							<div class="btn-search">
-								<button type="submit">Tìm</button>
+								<div class="btn-search">
+									<button type="submit">Tìm</button>
+								</div>
 							</div>
 						</form>
 					</div>
