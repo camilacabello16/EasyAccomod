@@ -3,6 +3,7 @@ package com.easyaccomod.mapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import com.easyaccomod.model.RoleModel;
 import com.easyaccomod.model.UserModel;
 
 public class UserMapper implements RowMapper<UserModel> {
@@ -17,6 +18,14 @@ public class UserMapper implements RowMapper<UserModel> {
 			user.setPhone(resultSet.getString("phone"));
 			user.setRoleId(resultSet.getLong("roleid"));
 			user.setUserName(resultSet.getString("username"));
+			try {
+				RoleModel role = new RoleModel();
+				role.setRoleCode(resultSet.getString("rolecode"));
+				role.setRoleName(resultSet.getString("rolename"));
+				user.setRole(role);
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
 			return user;
 		} catch (SQLException e) {
 			return null;

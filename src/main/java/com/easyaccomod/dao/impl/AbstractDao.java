@@ -6,21 +6,23 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ResourceBundle;
 
 import com.easyaccomod.dao.GenericDao;
 import com.easyaccomod.mapper.RowMapper;
 
 public class AbstractDao<T> implements GenericDao<T> {
+	
+	ResourceBundle bundle = ResourceBundle.getBundle("db");
 
 	public Connection getConnection() {
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
-			String url = "jdbc:mysql://localhost:3306/easy_accomod";
-			String user = "root";
-			String password = "buiduchieu16";
+			Class.forName(bundle.getString("driverName"));
+			String url = bundle.getString("url");
+			String user = bundle.getString("user");
+			String password = bundle.getString("password");
 			return DriverManager.getConnection(url, user, password);
 		} catch (ClassNotFoundException | SQLException e) {
 			return null;

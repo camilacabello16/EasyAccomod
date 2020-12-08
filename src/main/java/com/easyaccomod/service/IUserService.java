@@ -6,4 +6,5 @@ import com.easyaccomod.model.UserModel;
 
 public interface IUserService {
 	List<UserModel> findAll();
+	UserModel findByUserNameAndPassword(String userName, String password);
 }
