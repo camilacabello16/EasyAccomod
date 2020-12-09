@@ -1,11 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@include file="/common/taglib.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Đăng nhập</title>
+<title>Đăng ký</title>
 </head>
 <body>
 	<main>
@@ -22,25 +21,23 @@
 						</div>
 						<div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
 							<div class="wp-login-form">
-								<form action="<c:url value='/dang-nhap' />" method="POST">
+								<form>
 									<div class="login-form">
 										<div class="login-form--item">
-											<input type="text" name="userName" id="userName" placeholder="Tên người dùng">
+											<input type="text" name="" placeholder="Tên người dùng">
 										</div>
 										<div class="login-form--item">
-											<input type="password" name="password" id="password" placeholder="Mật khẩu">
+											<input type="password" name="" placeholder="Mật khẩu">
+										</div>
+										<div class="login-form--item">
+											<input type="text" name="" placeholder="Họ tên">
+										</div>
+										<div class="login-form--item">
+											<input type="text" name="" placeholder="Số điện thoại">
 										</div>
 									</div>
-									<c:if test="${not empty message}">
-										<p style="color: red;">${message}</p>
-									</c:if>
-									<input type="hidden" value="login" name="action" />
-									<div class="login-form--btn">
-										<button type="submit">Đăng nhập</button>
-									</div>
-									<div class="login-line"></div>
-									<div class="regis-btn">
-										<a href="<c:url value='/dang-ky?action=signup' />">Đăng ký</a>
+									<div class="login-form--btn" style="padding-top: 20px;">
+										<button type="submit">Đăng ký</button>
 									</div>
 								</form>
 							</div>

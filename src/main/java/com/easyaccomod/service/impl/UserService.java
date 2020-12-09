@@ -23,4 +23,25 @@ public class UserService implements IUserService {
 		return userDao.findByUserNameAndPassword(userName, password);
 	}
 
+	@Override
+	public UserModel save(UserModel userModel) {
+		Long userId = userDao.save(userModel);
+		return userDao.findOne(userId);
+	}
+
+	@Override
+	public UserModel update(UserModel userModel) {
+		userDao.update(userModel);
+		return userDao.findOne(userModel.getId());
+	}
+
+	@Override
+	public void delete(long[] ids) {
+		for(long id: ids) {
+			userDao.delete(id);
+		}
+	}
+
+
+
 }

@@ -18,10 +18,10 @@
 						</div>
 						<div class="wp-btn-post">
 							<div class="btn-post">
-								<a href="">Đăng phòng</a>
+								<a href="<c:url value='/admin-home?type=edit' />">Đăng phòng</a>
 							</div>
 							<div class="btn-delete">
-								<button type="button">Xóa phòng</button>
+								<button id="btnDelete" type="button">Xóa phòng</button>
 							</div>
 						</div>
 						<div class="admin-room">
@@ -49,7 +49,11 @@
 											</div>
 										</div>
 										<div class="btn-edit-room">
-											<a href="">Cập nhật</a>
+											<c:url var="editUrl" value="/admin-home">
+												<c:param name="type" value="edit" />
+												<c:param name="id" value="${room.id}" />
+											</c:url>
+											<a href="${editUrl }">Cập nhật</a>
 										</div>
 									</div>
 								</div>

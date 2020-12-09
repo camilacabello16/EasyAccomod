@@ -16,12 +16,12 @@
 					<div class="wp-login">
 						<ul class="login-list">
 							<c:if test="${not empty USERMODEL }">
-								<li><a href="#">${USERMODEL.fullName}</a></li>
+								<li><a href="#">Xin chào, ${USERMODEL.fullName}</a></li>
 								<li><a href="<c:url value='/thoat?action=logout' />">Thoát</a></li>
 							</c:if>
 							<c:if test="${empty USERMODEL }">
 								<li><a href="<c:url value='/dang-nhap?action=login' />">Đăng nhập</a></li>
-								<li><a href="">Đăng ký</a></li>
+								<li><a href="<c:url value='/dang-ky?action=signup' />">Đăng ký</a></li>
 							</c:if>
 							
 						</ul>

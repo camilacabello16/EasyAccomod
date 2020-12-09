@@ -22,7 +22,6 @@ public class RoomService implements IRoomService {
 	@Override
 	public RoomModel save(RoomModel roomModel) {
 		roomModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
-		roomModel.setCreatedBy("");
 		Long roomId = roomDao.save(roomModel);
 		return roomDao.findOne(roomId);
 	}
@@ -33,7 +32,6 @@ public class RoomService implements IRoomService {
 		updateRoom.setCreatedDate(oldRoom.getCreatedDate());
 		updateRoom.setCreatedBy(oldRoom.getCreatedBy());
 		updateRoom.setModifiedDate(new Timestamp(System.currentTimeMillis()));
-		updateRoom.setModifiedBy("");
 		roomDao.update(updateRoom);
 		return roomDao.findOne(updateRoom.getId());
 	}
@@ -48,6 +46,11 @@ public class RoomService implements IRoomService {
 	@Override
 	public List<RoomModel> findAll() {
 		return roomDao.findAll();
+	}
+
+	@Override
+	public RoomModel findOne(Long id) {
+		return roomDao.findOne(id);
 	}
 	
 }

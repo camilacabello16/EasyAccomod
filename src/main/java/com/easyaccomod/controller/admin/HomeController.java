@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.easyaccomod.model.RoomModel;
 import com.easyaccomod.service.IRoomService;
+import com.easyaccomod.utils.FormUtil;
 
 @WebServlet(urlPatterns = {"/admin-home"})
 public class HomeController extends HttpServlet {
@@ -23,11 +24,23 @@ public class HomeController extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		RoomModel roomModel = new RoomModel();
-		roomModel.setListResult(roomService.findAll());
-		req.setAttribute("rooms", roomModel);
-	
-		RequestDispatcher rd = req.getRequestDispatcher("/views/admin/home.jsp");
+		RoomModel roomModel = FormUtil.toModel(RoomModel.class, req);
+		String type = req.getParameter("type");
+		String view = "";
+		if(type != null && type.equals("edit")) {
+			if(roomModel.getId() != null) {
+				roomModel = roomService.findOne(roomModel.getId());
+			} else {
+				
+			}
+			view = "/views/edit.jsp";
+		} else if(type == null) {
+			roomModel.setListResult(roomService.findAll());
+			req.setAttribute("rooms", roomModel);
+			view="/views/admin/home.jsp";
+			
+		}
+		RequestDispatcher rd = req.getRequestDispatcher(view);
 		rd.forward(req, resp);
 	}
 	

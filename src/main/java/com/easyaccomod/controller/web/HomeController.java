@@ -24,7 +24,7 @@ import com.easyaccomod.service.IUserService;
 import com.easyaccomod.utils.FormUtil;
 import com.easyaccomod.utils.SessionUtil;
 
-@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/thoat"})
+@WebServlet(urlPatterns = {"/trang-chu","/dang-nhap","/thoat","/dang-ky"})
 public class HomeController extends HttpServlet {
 
 	private static final long serialVersionUID = 4965199485492466775L;
@@ -56,7 +56,11 @@ public class HomeController extends HttpServlet {
 			}
 			RequestDispatcher rd = req.getRequestDispatcher("/views/login.jsp");
 			rd.forward(req, resp);
-		} else if(action != null && action.equals("logout")) {
+		} else if(action != null && action.equals("signup")) {
+			RequestDispatcher rd = req.getRequestDispatcher("/views/signup.jsp");
+			rd.forward(req, resp);
+		}
+		else if(action != null && action.equals("logout")) {
 			SessionUtil.getInstance().removeValue(req, "USERMODEL");
 			resp.sendRedirect(req.getContextPath() + "/trang-chu");
 		} else {

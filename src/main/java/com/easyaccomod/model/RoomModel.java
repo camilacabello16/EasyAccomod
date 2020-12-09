@@ -23,7 +23,14 @@ public class RoomModel extends AbstractModel<RoomModel> {
 	private String modifiedBy;
 	private String phone;
 	private int status;
+	private String roomType;
 	
+	public String getRoomType() {
+		return roomType;
+	}
+	public void setRoomType(String roomType) {
+		this.roomType = roomType;
+	}
 	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
