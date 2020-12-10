@@ -11,7 +11,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.easyaccomod.model.RoomModel;
+import com.easyaccomod.service.IAddressService;
+import com.easyaccomod.service.ICityService;
 import com.easyaccomod.service.IRoomService;
+import com.easyaccomod.service.ITypeService;
 import com.easyaccomod.utils.FormUtil;
 
 @WebServlet(urlPatterns = {"/admin-home"})
@@ -21,6 +24,15 @@ public class HomeController extends HttpServlet {
 	
 	@Inject
 	private IRoomService roomService;
+	
+	@Inject
+	private ITypeService typeService;
+	
+	@Inject
+	private IAddressService addrService;
+	
+	@Inject
+	private ICityService cityService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -33,13 +45,17 @@ public class HomeController extends HttpServlet {
 			} else {
 				
 			}
+			req.setAttribute("types", typeService.findAll());
+			req.setAttribute("addr", addrService.findAll());
+			req.setAttribute("cities", cityService.findAll());
 			view = "/views/edit.jsp";
 		} else if(type == null) {
-			roomModel.setListResult(roomService.findAll());
-			req.setAttribute("rooms", roomModel);
+			
 			view="/views/admin/home.jsp";
 			
 		}
+		roomModel.setListResult(roomService.findAll());
+		req.setAttribute("rooms", roomModel);
 		RequestDispatcher rd = req.getRequestDispatcher(view);
 		rd.forward(req, resp);
 	}

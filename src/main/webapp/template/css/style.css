@@ -804,7 +804,7 @@ ul{
 .form-edit--item input {
     flex: 1;
 }
-.wp-btn-update input {
+.wp-btn-update button {
     background-color: #E79E9E;
     border: none;
     outline: none;
@@ -932,58 +932,6 @@ ul{
 	color: #eb7c7c!important;
 	transition: 0.3s;
 }
-.cmt-user--item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.user--ava {
-    width: 60px;
-    border: 1px solid;
-    text-align: center;
-    border-radius: 100px;
-    height: 60px;
-    line-height: 60px;
-}
-.user--ava svg {
-    font-size: 22px;
-}
-.user--cmt {
-    display: flex;
-    margin-left: 20px;
-    margin-top: 10px;
-}
-.user--name p {
-    font-size: 18px;
-    color: #e79e9e;
-    font-weight: bold;
-}
-.user--cmt__cnt p {
-    font-size: 18px;
-}
-.user--cmt__cnt {
-    margin-left: 8px;
-}
-.inp-add-cmt--cnt textarea {
-    width: 100%;
-    padding: 10px 10px;
-    outline: none;
-}
-.inp-add-cmt--cnt {
-    margin-bottom: -14px;
-}
-.inp-add-cmt {
-    margin-top: 50px;
-}
-.user-rating {
-    margin-top: 30px;
-}
-.rating-chkbox {
-    display: flex;
-}
-.rating-chkbox--item {
-    margin-right: 20px;
-}
 @media (min-width:992px) and (max-width:1199px){
 	.title-room p {
 	    font-size: 23px;
@@ -1021,12 +969,6 @@ ul{
 	.room-des--content__txt p{
 		margin-bottom: 10px;
 	}
-	.inp-add-cmt {
-	    margin-top: 40px;
-	}
-	.rating-chkbox--item {
-	    margin-right: 18px;
-	}
 }
 @media (min-width:576px) and (max-width: 767px){
 	.title-room p {
@@ -1055,35 +997,6 @@ ul{
 	}
 	.room-des--content__txt p {
 	    margin-bottom: 5px;
-	}
-	.inp-add-cmt {
-	    margin-top: 40px;
-	}
-	.user--cmt{
-	    margin-left: 15px;
-	}
-	.user--ava {
-	    width: 50px;
-	    height: 50px;
-	    line-height: 50px;
-	}
-	.user--ava svg {
-	    font-size: 20px;
-	}
-	.user--cmt__cnt p {
-	    font-size: 17px;
-	}
-	.user--name p {
-	    font-size: 17px;
-	}
-	.cmt-user--item{
-		margin-bottom: 16px;
-	}
-	.rating-chkbox--item {
-	    margin-right: 17px;
-	}
-	.user-rating {
-	    margin-top: 28px;
 	}
 }
 @media (max-width:575px){
@@ -1119,38 +1032,6 @@ ul{
 	.room-des--title p {
 	    font-size: 17px;
 	    margin-bottom: 8px;
-	}
-	.inp-add-cmt {
-	    margin-top: 30px;
-	}
-	.user--cmt{
-	    margin-left: 15px;
-	}
-	.user--ava {
-	    width: 45px;
-	    height: 45px;
-	    line-height: 45px;
-	}
-	.user--ava svg {
-	    font-size: 18px;
-	}
-	.user--cmt__cnt p {
-	    font-size: 16px;
-	}
-	.user--name p {
-	    font-size: 16px;
-	}
-	.cmt-user--item{
-		margin-bottom: 12px;
-	}
-	.rating-chkbox--item {
-	    margin-right: 17px;
-	}
-	.user-rating {
-	    margin-top: 28px;
-	}
-	.rating-chkbox {
-	    flex-direction: column;
 	}
 }
 
@@ -1241,4 +1122,22 @@ ul{
 	.list-acc--table {
 	    font-size: 15px;
 	}
+}
+
+/* VALIDATE */
+.login-form--item label {
+    color: red;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+.txt-validate label {
+    width: 100%;
+    color: red;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+.txt-validate {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
 }

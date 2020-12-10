@@ -20,45 +20,62 @@
 							<div class="form-edit">
 								<div class="form-edit--item">
 									<label class="title-form">Tiêu đề</label>
-									<input type="text" name="description">
+									<div class="txt-validate">
+										<input type="text" name="description" value="${rooms.description }">
+									</div>
 								</div>
 								<div class="form-edit--item">
 									<p class="title-form">Địa chỉ</p>
 									<div class="wp-input">
 										<div class="inp-item">
-											<label>Số nhà</label>
-											<input type="number" name="">
-										</div>
-										<div class="inp-item">
 											<label>Đường</label>
-											<input type="text" name="">
+											<select name="street">
+												<option>Chọn đường</option>
+												<c:forEach var="addr" items="${addr}">
+													<option>${addr.street }</option>
+												</c:forEach>
+											</select>
 										</div>
 										<div class="inp-item">
 											<label>Quận</label>
-											<input type="text" name="">
+											<select name="district">
+												<option>Chọn quận</option>
+												<c:forEach var="addr" items="${addr}">
+													<option>${addr.district}</option>
+												</c:forEach>
+											</select>
 										</div>
 										<div class="inp-item">
 											<label>Thành phố</label>
-											<input type="text" name="">
+											<select name="city">
+												<option>Chọn thành phố</option>
+												<c:forEach var="city" items="${cities}">
+													<option>${city.city }</option>
+												</c:forEach>
+											</select>
 										</div>
 									</div>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Loại phòng</label>
 									<select name="roomType">
-										<option>Phòng trọ</option>
-										<option>Chung cư mini</option>
-										<option>Nhà nguyên căn</option>
-										<option>Chung cư nguyên căn</option>
+										<option>Loại phòng</option>
+										<c:forEach var="type" items="${types}">
+											<option value="${type.type}">${type.name}</option>
+										</c:forEach>
 									</select>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Giá cả</label>
-									<input type="text" name="price" placeholder="Tính theo tháng">
+									<div class="txt-validate">
+										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price }">
+									</div>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Diện tích</label>
-									<input type="number" name="area" placeholder="m2">
+									<div class="txt-validate">
+										<input type="number" name="area" placeholder="m2" value="${rooms.area }">
+									</div>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Phòng tắm</label>
@@ -90,6 +107,12 @@
 									</select>
 								</div>
 								<div class="form-edit--item">
+									<label class="title-form">Hình ảnh</label>
+									<div class="txt-validate">
+										<input type="text" name="image" value="${rooms.image }">
+									</div>
+								</div>
+								<div class="form-edit--item">
 									<p class="title-form">Thông tin liên hệ</p>
 									<div class="info-user">
 										<div class="info-user--name">
@@ -103,7 +126,7 @@
 									</div>
 								</div>
 								<div class="wp-btn-update">
-									<input type="button" name="" value="Đăng bài">
+									<button type="submit" name="">Đăng phòng</button>
 								</div>
 							</div>
 						</form>
@@ -112,5 +135,41 @@
 			</div>
 		</div>
 	</main>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+	<script>
+		console.log("test");
+        $(function() {
+            $("form[name='myform']").validate({
+                rules: {
+                    title: "required",
+                    apartnumber: "required",
+                    street: "required",
+                    district: "required",
+                    city: "required",
+                    describe: "required",
+                    cost: "required",
+                    area: "required",
+                    fullname: "required",
+                    phonenumber: "required",
+                },
+                messages: {
+                    title: "Bạn chưa nhập tiêu đề",
+                    apartnumber: "Bạn chưa nhập số nhà",
+                    street: "Bạn chưa nhập địa chỉ đường",
+                    district: "Bạn chưa nhập quận",
+                    city: "Bạn chưa nhập thành phố",
+                    describe: "Bạn chưa nhập mô tả",
+                    cost: "Bạn chưa nhập giá cả",
+                    area: "Bạn chưa nhập diện tích",
+                    fullname: "Bạn chưa nhập họ tên",
+                    phonenumber: "Bạn chưa nhập số điện thoại",
+                },
+                submitHandler: function(form) {
+                    form.submit();
+                }
+            });
+        });
+    </script>
 </body>
 </html>
