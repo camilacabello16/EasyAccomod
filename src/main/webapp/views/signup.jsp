@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@include file="/common/taglib.jsp" %>
+<c:url var="userApi" value="/api-web-user"/>
+<c:url var="redirectUrl" value="/dang-nhap?action=login"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -21,23 +24,23 @@
 						</div>
 						<div class="col-xl-5 col-lg-5 col-md-6 col-sm-12 col-12">
 							<div class="wp-login-form">
-								<form>
+								<form id="formSignup" name="myform">
 									<div class="login-form">
 										<div class="login-form--item">
-											<input type="text" name="" placeholder="Tên người dùng">
+											<input type="text" name="userName" placeholder="Tên người dùng">
 										</div>
 										<div class="login-form--item">
-											<input type="password" name="" placeholder="Mật khẩu">
+											<input type="password" name="password" placeholder="Mật khẩu">
 										</div>
 										<div class="login-form--item">
-											<input type="text" name="" placeholder="Họ tên">
+											<input type="text" name="fullName" placeholder="Họ tên">
 										</div>
 										<div class="login-form--item">
-											<input type="text" name="" placeholder="Số điện thoại">
+											<input type="text" name="phone" placeholder="Số điện thoại">
 										</div>
 									</div>
 									<div class="login-form--btn" style="padding-top: 20px;">
-										<button type="submit">Đăng ký</button>
+										<button type="submit" id="btnSignup">Đăng ký</button>
 									</div>
 								</form>
 							</div>
@@ -49,6 +52,35 @@
 		</div>
 	</main>
 	
-	
+	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
+    
+	<script type="text/javascript">
+		$('#btnSignup').click(function(e){
+			e.preventDefault();
+			var data = {};
+			var formSignup = $('#formSignup').serializeArray();
+			$.each(formSignup, function(i, v){
+				data[""+v.name+""] = v.value;
+			});
+			addUser(data);
+		})
+		function addUser(data){
+			$.ajax({
+				url: '${userApi}',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function (result) {
+	            	window.location.href = "${redirectUrl}";
+	            },
+	            error: function (error) {
+	            	console.log(error);
+	            }
+			});
+		}
+	</script>
 </body>
 </html>

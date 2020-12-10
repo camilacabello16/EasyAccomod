@@ -16,7 +16,7 @@
 						<div class="title-admin">
 							<p>Đăng bài cho thuê phòng</p>
 						</div>
-						<form>
+						<form name="myform">
 							<div class="form-edit">
 								<div class="form-edit--item">
 									<label class="title-form">Tiêu đề</label>
@@ -135,35 +135,35 @@
 			</div>
 		</div>
 	</main>
+	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<script>
-		console.log("test");
         $(function() {
             $("form[name='myform']").validate({
                 rules: {
-                    title: "required",
+                	description: "required",
                     apartnumber: "required",
                     street: "required",
                     district: "required",
                     city: "required",
                     describe: "required",
-                    cost: "required",
+                    price: "required",
                     area: "required",
-                    fullname: "required",
-                    phonenumber: "required",
+                    image: "required"
                 },
                 messages: {
-                    title: "Bạn chưa nhập tiêu đề",
+                	description: "Bạn chưa nhập tiêu đề",
                     apartnumber: "Bạn chưa nhập số nhà",
                     street: "Bạn chưa nhập địa chỉ đường",
                     district: "Bạn chưa nhập quận",
                     city: "Bạn chưa nhập thành phố",
                     describe: "Bạn chưa nhập mô tả",
-                    cost: "Bạn chưa nhập giá cả",
+                    price: "Bạn chưa nhập giá cả",
                     area: "Bạn chưa nhập diện tích",
-                    fullname: "Bạn chưa nhập họ tên",
-                    phonenumber: "Bạn chưa nhập số điện thoại",
+                    image: "Bạn chưa tải hình ảnh"
+                    //fullname: "Bạn chưa nhập họ tên",
+                    //phonenumber: "Bạn chưa nhập số điện thoại",
                 },
                 submitHandler: function(form) {
                     form.submit();

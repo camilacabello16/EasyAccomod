@@ -25,14 +25,14 @@ public class UserDao extends AbstractDao<UserModel> implements IUserDao {
 	@Override
 	public Long save(UserModel userModel) {
 		String sql = "INSERT INTO user (roleid, username, password, fullname, phone) VALUES (?,?,?,?,?)";
-		return insert(sql, 1, userModel.getUserName(), userModel.getPassword(),
+		return insert(sql, 2, userModel.getUserName(), userModel.getPassword(),
 				userModel.getFullName(), userModel.getPhone());
 	}
 
 	@Override
 	public void update(UserModel userModel) {
 		String sql = "UPDATE user SET roleid = ?, username=?, password=?, fullname=?, phone=? WHERE id=?";
-		update(sql, 1, userModel.getUserName(), userModel.getPassword(),
+		update(sql, 2, userModel.getUserName(), userModel.getPassword(),
 				userModel.getFullName(), userModel.getPhone(), userModel.getId());
 	}
 
