@@ -29,7 +29,7 @@ public class RoomMapper implements RowMapper<RoomModel> {
 			if(resultSet.getTimestamp("modifieddate") != null) {
 				room.setModifiedDate(resultSet.getTimestamp("modifieddate"));
 			}
-			if(resultSet.getString("modifiedBy") != null) {
+			if(resultSet.getString("modifiedby") != null) {
 				room.setModifiedBy(resultSet.getString("modifiedby"));
 			}
 			room.setRating(resultSet.getInt("rating"));

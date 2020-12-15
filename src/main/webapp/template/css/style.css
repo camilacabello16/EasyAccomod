@@ -591,6 +591,20 @@ ul{
     display: block;
     color: #fff!important;
 }
+.btn-post button {
+    cursor: pointer;
+    padding: 8px 7px;
+    font-size: 17px;
+    color: #fff!important;
+    background-color: #fab3bf;
+    transition: 0.3s;
+    border: none;
+    border: none;
+}
+.btn-post button:hover{
+	background-color: #E79E9E;
+	transition: 0.3s;
+}
 .btn-post:hover{
 	background-color: #E79E9E;
 	transition: 0.3s;
@@ -804,7 +818,7 @@ ul{
 .form-edit--item input {
     flex: 1;
 }
-.wp-btn-update button {
+.wp-btn-update input {
     background-color: #E79E9E;
     border: none;
     outline: none;
@@ -932,6 +946,52 @@ ul{
 	color: #eb7c7c!important;
 	transition: 0.3s;
 }
+.user-cmt--item {
+	display: flex;
+	margin-bottom: 10px;
+}
+.user-img {
+    width: 50px;
+	height: 50px;
+	line-height: 50px;
+    text-align: center;
+    border-radius: 100px;
+    border: 1px solid #bbbbbb;
+}
+.user-img svg {
+    font-size: 25px;
+}
+.wp-cmt-content {
+    flex: 1;
+    margin-left: 20px;
+}
+.user-name p {
+    font-size: 18px;
+    color: #E79E9E;
+}
+.user-name {
+    margin-bottom: -15px;
+}
+.user-pov--cmt textarea {
+	width: 100%;
+	padding: 10px 15px;
+}
+.user-pov--rate {
+    display: flex;
+}
+.user-pov--rate__item {
+    margin-right: 15px;
+}
+.add-cmt-user {
+    margin-top: 30px;
+}
+.btn-post-cmt {
+    width: 60px;
+    text-align: center;
+}
+.user-pov--rate {
+    margin: 10px 0;
+}
 @media (min-width:992px) and (max-width:1199px){
 	.title-room p {
 	    font-size: 23px;
@@ -1032,6 +1092,9 @@ ul{
 	.room-des--title p {
 	    font-size: 17px;
 	    margin-bottom: 8px;
+	}
+	.user-pov--rate {
+		flex-direction: column;
 	}
 }
 
@@ -1140,4 +1203,20 @@ ul{
     flex: 1;
     display: flex;
     flex-direction: column;
+}
+
+/* VALIDATION HUNG */
+.invali-note
+{
+	font-size: 14px;
+	color: red;
+}
+.vali-feedback{
+	font-size: 16px;
+	color: red;
+	margin-top: 5px;
+    margin-left: 5px;
+}
+.dis-none{
+	display: none;
 }

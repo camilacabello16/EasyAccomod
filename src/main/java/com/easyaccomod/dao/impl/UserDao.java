@@ -1,6 +1,5 @@
 package com.easyaccomod.dao.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.easyaccomod.dao.IUserDao;
