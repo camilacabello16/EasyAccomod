@@ -30,28 +30,58 @@
 										<div class="inp-item">
 											<label>Đường</label>
 											<select name="street">
-												<option>Chọn đường</option>
-												<c:forEach var="addr" items="${addr}">
-													<option>${addr.street }</option>
-												</c:forEach>
+												<c:if test="${empty rooms.addrStreet}">
+													<option>Chọn đường</option>
+													<c:forEach var="addr" items="${addr}">
+														<option>${addr.street }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${not empty rooms.addrStreet}">
+													<option>Chọn đường</option>
+													<c:forEach var="addr" items="${addr}">
+														<option value="${addr.street}" <c:if test="${addr.street == rooms.addrStreet}">selected="selected"</c:if>>
+															${addr.street}
+														</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<div class="inp-item">
 											<label>Quận</label>
 											<select name="district">
-												<option>Chọn quận</option>
-												<c:forEach var="addr" items="${addr}">
-													<option>${addr.district}</option>
-												</c:forEach>
+												<c:if test="${empty rooms.addrDistrict}">
+													<option>Chọn quận</option>
+													<c:forEach var="addr" items="${addr}">
+														<option>${addr.district}</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${not empty rooms.addrDistrict}">
+													<option>Chọn quận</option>
+													<c:forEach var="addr" items="${addr}">
+														<option value="${addr.district}" <c:if test="${addr.district == rooms.addrDistrict}">selected="selected"</c:if>>
+															${addr.district}
+														</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 										<div class="inp-item">
 											<label>Thành phố</label>
 											<select name="city">
-												<option>Chọn thành phố</option>
-												<c:forEach var="city" items="${cities}">
-													<option>${city.city }</option>
-												</c:forEach>
+												<c:if test="${empty rooms.addrCity}">
+													<option>Chọn thành phố</option>
+													<c:forEach var="city" items="${cities}">
+														<option>${city.city }</option>
+													</c:forEach>
+												</c:if>
+												<c:if test="${not empty rooms.addrCity}">
+													<option>Chọn thành phố</option>
+													<c:forEach var="city" items="${cities}">
+														<option value="${city.city}" <c:if test="${city.city == rooms.addrCity}">selected="selected"</c:if>>
+															${city.city }
+														</option>
+													</c:forEach>
+												</c:if>
 											</select>
 										</div>
 									</div>
@@ -59,22 +89,32 @@
 								<div class="form-edit--item">
 									<label class="title-form">Loại phòng</label>
 									<select name="roomType">
-										<option>Loại phòng</option>
-										<c:forEach var="type" items="${types}">
-											<option value="${type.type}">${type.name}</option>
-										</c:forEach>
+										<c:if test="${empty rooms.roomType}">
+											<option>Loại phòng</option>
+											<c:forEach var="type" items="${types}">
+												<option value="${type.type}">${type.name}</option>
+											</c:forEach>
+										</c:if>
+										<c:if test="${not empty rooms.roomType}">
+											<option>Loại phòng</option>
+											<c:forEach var="type" items="${types}">		
+												<option value="${type.type}" <c:if test="${type.type == rooms.roomType}">selected="selected"</c:if>>
+													${type.name}
+												</option>
+											</c:forEach>
+										</c:if>
 									</select>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Giá cả</label>
 									<div class="txt-validate">
-										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price }">
+										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price } triệu/tháng">
 									</div>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Diện tích</label>
 									<div class="txt-validate">
-										<input type="number" name="area" placeholder="m2" value="${rooms.area }">
+										<input type="number" name="area" placeholder="m²" value="${rooms.area}">
 									</div>
 								</div>
 								<div class="form-edit--item">

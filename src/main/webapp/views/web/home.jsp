@@ -96,7 +96,7 @@
 									<a href="/easy-accomod-jdbc/chi-tiet-phong?id=${room.id}">${room.description}</a>
 									<p class="room-txt--price">${room.price} triệu/tháng</p>
 									<p class="room-txt--size">${room.area}m²</p>
-									<p class="room-txt--addr">${room.addressId}</p>
+									<!--  <p class="room-txt--addr">${room.addressId}</p> -->
 								</div>
 							</div>
 						</c:forEach>

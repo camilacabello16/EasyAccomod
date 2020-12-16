@@ -24,6 +24,9 @@ public class RoomModel extends AbstractModel<RoomModel> {
 	private String phone;
 	private int status;
 	private String roomType;
+	private String addrDistrict;
+	private String addrStreet;
+	private String addrCity;
 	
 	public String getRoomType() {
 		return roomType;
@@ -151,5 +154,24 @@ public class RoomModel extends AbstractModel<RoomModel> {
 	public void setStatus(int status) {
 		this.status = status;
 	}
+	public String getAddrDistrict() {
+		return addrDistrict;
+	}
+	public void setAddrDistrict(String addrDistrict) {
+		this.addrDistrict = addrDistrict;
+	}
+	public String getAddrStreet() {
+		return addrStreet;
+	}
+	public void setAddrStreet(String addrStreet) {
+		this.addrStreet = addrStreet;
+	}
+	public String getAddrCity() {
+		return addrCity;
+	}
+	public void setAddrCity(String addrCity) {
+		this.addrCity = addrCity;
+	}
+
 	
 }

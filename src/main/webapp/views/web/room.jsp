@@ -24,10 +24,14 @@
 							</div>
 							<div class="room-inf--detail">
 								<div class="room-inf--detail__item">
-									<p><span>Địa chỉ: </span>Quận Gò Vấp, Hồ Chí Minh</p>
+									<p><span>Địa chỉ: </span>${room.addrDistrict}, ${room.addrCity}</p>
 								</div>
 								<div class="room-inf--detail__item">
-									<p><span>Loại phòng: </span>Phòng trọ</p>
+									<c:forEach var="type" items="${types}">
+										<c:if test="${type.type == room.roomType }">
+											<p><span>Loại phòng: </span>${type.name }</p>
+										</c:if>
+									</c:forEach>
 								</div>
 								<div class="room-inf--detail__item">
 									<p><span>Ngày cập nhật: </span>${room.createdDate}</p>

@@ -4,6 +4,13 @@ public class AddressModel extends AbstractModel<AddressModel> {
 	private String street;
 	private String district;
 	private Long cityId;
+	private String city;
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
 	public String getStreet() {
 		return street;
 	}

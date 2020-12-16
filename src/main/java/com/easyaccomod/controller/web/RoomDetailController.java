@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.easyaccomod.model.CommentModel;
 import com.easyaccomod.service.ICommentService;
 import com.easyaccomod.service.IRoomService;
+import com.easyaccomod.service.ITypeService;
 
 @WebServlet(urlPatterns = {"/chi-tiet-phong"})
 public class RoomDetailController extends HttpServlet {
@@ -24,6 +25,9 @@ public class RoomDetailController extends HttpServlet {
 	
 	@Inject
 	private ICommentService commentService;
+	
+	@Inject
+	private ITypeService typeService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -36,6 +40,8 @@ public class RoomDetailController extends HttpServlet {
 		CommentModel commentModel = new CommentModel();
 		commentModel.setListResult(commentService.findByRoomId(roomId));
 		req.setAttribute("comments", commentModel);
+		
+		req.setAttribute("types", typeService.findAll());
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/views/web/room.jsp");
 		rd.forward(req, resp);

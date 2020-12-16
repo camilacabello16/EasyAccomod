@@ -102,9 +102,7 @@
 			$.each(formSignup, function(i, v){
 				data[""+v.name+""] = v.value;
 			});
-			//addUser(data);
-			console.log(data);
-			console.log(formSignup);
+			addUser(data);
 		})
 		function addUser(data){
 			$.ajax({

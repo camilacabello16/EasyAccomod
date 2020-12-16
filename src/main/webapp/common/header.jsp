@@ -8,7 +8,7 @@
 				<div class="col-xl-8 col-lg-8 col-md-7 col-sm-6 col-5">
 					<div class="wp-menu">
 						<ul class="menu-list">
-							<li><a href="">Trang chủ</a></li>
+							<li><a href="/easy-accomod-jdbc/trang-chu">Trang chủ</a></li>
 						</ul>
 					</div>
 				</div>
