@@ -105,23 +105,23 @@
 										</div>
 										<div class="user-pov--rate">
 											<div class="user-pov--rate__item">
-												<input type="radio">
+												<input type="radio" id="rating1" value="1" >
 												<label>Rất tệ</label>
 											</div>
 											<div class="user-pov--rate__item">
-												<input type="radio">
+												<input type="radio" id="rating2" value="2" >
 												<label>Tệ</label>
 											</div>
 											<div class="user-pov--rate__item">
-												<input type="radio">
+												<input type="radio" id="rating3" value="3">
 												<label>Bình thường</label>
 											</div>
 											<div class="user-pov--rate__item">
-												<input type="radio">
+												<input type="radio" id="rating4" value="4">
 												<label>Tốt</label>
 											</div>
 											<div class="user-pov--rate__item">
-												<input type="radio">
+												<input type="radio" id="rating5" value="5">
 												<label>Rất tốt</label>
 											</div>
 										</div>
@@ -146,18 +146,36 @@
 			e.preventDefault();
 			var data = {};
 			var formAddCmt = $('#formAddCmt').serializeArray();
+			var formRating = $('#formAddCmt').serializeArray();
 			var content = $('#content').val();
 			var roomId = $('#roomId').val();
 			var userId = $('#userId').val();
+			var userRating = 0;
+			if ($("#rating1").prop("checked")) {
+				userRating = $("#rating1").val();
+			}
+			if ($("#rating2").prop("checked")) {
+				userRating = $("#rating2").val();
+			}
+			if ($("#rating3").prop("checked")) {
+				userRating = $("#rating3").val();
+			}
+			if ($("#rating4").prop("checked")) {
+				userRating = $("#rating4").val();
+			}
+			if ($("#rating5").prop("checked")) {
+				userRating = $("#rating5").val();
+			}
 			formAddCmt.push({name: "userId", value: userId});
 			formAddCmt.push({name: "roomId", value: roomId});
 			formAddCmt.push({name: "content", value: content});
+			formRating.push({name: "rating", value: userRating});
+			console.log(formAddCmt);
+			console.log(formRating);
 			$.each(formAddCmt, function(i, v){
 				data[""+v.name+""] = v.value;
 			});
-			console.log(data);
-			console.log(formAddCmt);
-			addCmt(data);
+			//addCmt(data);
 		})
 		function addCmt(data){
 			$.ajax({

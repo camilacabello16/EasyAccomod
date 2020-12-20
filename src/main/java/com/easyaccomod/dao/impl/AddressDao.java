@@ -14,7 +14,7 @@ public class AddressDao extends AbstractDao<AddressModel> implements IAddressDao
 
 	@Inject
 	private ICityDao cityDao;
-	
+
 	@Override
 	public List<AddressModel> findAll() {
 		String sql = "SELECT * FROM address";
@@ -29,6 +29,20 @@ public class AddressDao extends AbstractDao<AddressModel> implements IAddressDao
 		CityModel city = cityDao.findOne(addrModel.getCityId());
 		addrModel.setCity(city.getCity());
 		return addrModel;
+	}
+
+	@Override
+	public AddressModel findOneByDistrictAndStreet(String district, String street) {
+		String sql = "SELECT * FROM address WHERE street = ? AND district = ?";
+		List<AddressModel> addrs = query(sql, new AddressMapper(), street, district);
+		return addrs.isEmpty() ? null : addrs.get(0);
+	}
+
+	@Override
+	public AddressModel findOneByStreet(String street) {
+		String sql = "SELECT * FROM address WHERE street = ?";
+		List<AddressModel> addrs = query(sql, new AddressMapper(), street);
+		return addrs.isEmpty() ? null : addrs.get(0);
 	}
 
 }

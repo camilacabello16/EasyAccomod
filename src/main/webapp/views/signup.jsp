@@ -91,19 +91,15 @@
 	                }
 	            },
 	            submitHandler: function(form) {
-	                form.submit();
+	            	var data = {};
+	    			var formSignup = $('#formSignup').serializeArray();
+	    			$.each(formSignup, function(i, v){
+	    				data[""+v.name+""] = v.value;
+	    			});
+	    			addUser(data);
 	            }
 	        });
 	    });
-		$('#btnSignup').click(function(e){
-			e.preventDefault();
-			var data = {};
-			var formSignup = $('#formSignup').serializeArray();
-			$.each(formSignup, function(i, v){
-				data[""+v.name+""] = v.value;
-			});
-			addUser(data);
-		})
 		function addUser(data){
 			$.ajax({
 				url: '${userApi}',

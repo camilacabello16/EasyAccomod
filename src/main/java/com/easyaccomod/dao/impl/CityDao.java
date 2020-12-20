@@ -21,4 +21,11 @@ public class CityDao extends AbstractDao<CityModel> implements ICityDao {
 		return city.isEmpty() ? null : city.get(0);
 	}
 
+	@Override
+	public CityModel findOneByCity(String city) {
+		String sql = "SELECT * FROM city WHERE city = ?";
+		List<CityModel> cities = query(sql, new CityMapper(), city);
+		return cities.isEmpty() ? null : cities.get(0);
+	}
+
 }

@@ -35,6 +35,7 @@ public class RoomDetailController extends HttpServlet {
 		Long roomId;
 		roomId = Long.parseLong(idStr);
 		
+		roomService.updateSeen(roomId);
 		req.setAttribute("room", roomService.findOne(roomId));
 		
 		CommentModel commentModel = new CommentModel();

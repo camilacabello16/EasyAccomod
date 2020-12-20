@@ -11,4 +11,6 @@ public interface IRoomDao extends GenericDao<RoomModel> {
 	void update(RoomModel updateRoom);
 	void delete(long id);
 	List<RoomModel> findAll();
+	void updateSeen(Long id);
+	void updateRating(int rating, Long id);
 }

@@ -54,4 +54,16 @@ public class RoomDao extends AbstractDao<RoomModel> implements IRoomDao {
 		return query(sql, new RoomMapper());
 	}
 
+	@Override
+	public void updateSeen(Long id) {
+		String sql = "UPDATE room SET seen = seen + 1 WHERE id = ?";
+		update(sql, id);
+	}
+
+	@Override
+	public void updateRating(int rating, Long id) {
+		String sql = "UPDATE room SET rating = (rating+?)/2 WHERE id = ?";
+		update(sql, rating, id);
+	}
+
 }

@@ -14,4 +14,7 @@ public interface IRoomService {
 	RoomModel update(RoomModel updateRoom);
 	//delete
 	void delete(long[] ids);
+	
+	void updateSeen(Long id);
+	void updateRating(int rating, Long id);
 }

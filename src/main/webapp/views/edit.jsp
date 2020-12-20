@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+<c:url var="roomApi" value="/api-admin-room"/>
+<c:url var="redirectUrl" value="/admin-home"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,7 +18,7 @@
 						<div class="title-admin">
 							<p>Đăng bài cho thuê phòng</p>
 						</div>
-						<form name="myform">
+						<form name="myform" id="formPostRoom">
 							<div class="form-edit">
 								<div class="form-edit--item">
 									<label class="title-form">Tiêu đề</label>
@@ -29,7 +31,7 @@
 									<div class="wp-input">
 										<div class="inp-item">
 											<label>Đường</label>
-											<select name="street">
+											<select name="addrStreet">
 												<c:if test="${empty rooms.addrStreet}">
 													<option>Chọn đường</option>
 													<c:forEach var="addr" items="${addr}">
@@ -48,7 +50,7 @@
 										</div>
 										<div class="inp-item">
 											<label>Quận</label>
-											<select name="district">
+											<select>
 												<c:if test="${empty rooms.addrDistrict}">
 													<option>Chọn quận</option>
 													<c:forEach var="addr" items="${addr}">
@@ -67,7 +69,7 @@
 										</div>
 										<div class="inp-item">
 											<label>Thành phố</label>
-											<select name="city">
+											<select>
 												<c:if test="${empty rooms.addrCity}">
 													<option>Chọn thành phố</option>
 													<c:forEach var="city" items="${cities}">
@@ -108,7 +110,7 @@
 								<div class="form-edit--item">
 									<label class="title-form">Giá cả</label>
 									<div class="txt-validate">
-										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price } triệu/tháng">
+										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price }">
 									</div>
 								</div>
 								<div class="form-edit--item">
@@ -116,6 +118,19 @@
 									<div class="txt-validate">
 										<input type="number" name="area" placeholder="m²" value="${rooms.area}">
 									</div>
+								</div>
+								<div class="form-edit--item">
+									<label class="title-form">Số phòng</label>
+									<div class="txt-validate">
+										<input type="number" name="numberOfRoom" value="${rooms.numberOfRoom}">
+									</div>
+								</div>
+								<div class="form-edit--item">
+									<label class="title-form">Chung chủ</label>
+									<select name="owner">
+										<option>Có</option>
+										<option>Không</option>
+									</select>
 								</div>
 								<div class="form-edit--item">
 									<label class="title-form">Phòng tắm</label>
@@ -153,6 +168,13 @@
 									</div>
 								</div>
 								<div class="form-edit--item">
+									<label class="title-form">Trạng thái</label>
+									<select name="status">
+										<option value="1">Còn phòng</option>
+										<option value="0">Hết phòng</option>
+									</select>
+								</div>
+								<div class="form-edit--item">
 									<p class="title-form">Thông tin liên hệ</p>
 									<div class="info-user">
 										<div class="info-user--name">
@@ -166,9 +188,11 @@
 									</div>
 								</div>
 								<div class="wp-btn-update">
-									<button type="submit" name="">Đăng phòng</button>
+									<!--  <button type="submit" name="" id="btnSubmitRoom">Đăng phòng</button> -->
+									<input type="submit" id="btnSubmitRoom" value="Đăng phòng">
 								</div>
 							</div>
+							<input type="hidden" id="id" value="${rooms.id}" name="id">
 						</form>
 					</div>
 				</div>
@@ -179,37 +203,54 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<script>
-        $(function() {
-            $("form[name='myform']").validate({
-                rules: {
-                	description: "required",
-                    apartnumber: "required",
-                    street: "required",
-                    district: "required",
-                    city: "required",
-                    describe: "required",
-                    price: "required",
-                    area: "required",
-                    image: "required"
+        
+        $('#btnSubmitRoom').click(function(e){
+        	e.preventDefault();
+        	var data = {};
+        	var formData = $('#formPostRoom').serializeArray();
+        	formData.push({name: "seen", value: "0"});
+        	formData.push({name: "rating", value: "5"});
+        	$.each(formData, function(i,v){
+        		data[""+v.name+""] = v.value;
+        	})
+        	console.log(data);
+        	var id = $('#id').val();
+        	if(id == ""){
+        		addRoom(data);
+        	} else{
+        		updateRoom(data);
+        	}
+        })
+        function addRoom(data){
+        	$.ajax({
+        		url: '${roomApi}',
+        		type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
                 },
-                messages: {
-                	description: "Bạn chưa nhập tiêu đề",
-                    apartnumber: "Bạn chưa nhập số nhà",
-                    street: "Bạn chưa nhập địa chỉ đường",
-                    district: "Bạn chưa nhập quận",
-                    city: "Bạn chưa nhập thành phố",
-                    describe: "Bạn chưa nhập mô tả",
-                    price: "Bạn chưa nhập giá cả",
-                    area: "Bạn chưa nhập diện tích",
-                    image: "Bạn chưa tải hình ảnh"
-                    //fullname: "Bạn chưa nhập họ tên",
-                    //phonenumber: "Bạn chưa nhập số điện thoại",
-                },
-                submitHandler: function(form) {
-                    form.submit();
+                error: function (error) {
+                	console.log(error);
                 }
-            });
-        });
+        	})
+        }
+        function updateRoom(data){
+        	$.ajax({
+        		url: '${roomApi}',
+        		type: 'PUT',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                dataType: 'json',
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
     </script>
 </body>
 </html>

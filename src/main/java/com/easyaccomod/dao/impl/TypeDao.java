@@ -21,4 +21,11 @@ public class TypeDao extends AbstractDao<RoomTypeModel> implements ITypeDao {
 		return type.isEmpty() ? null : type.get(0);
 	}
 
+	@Override
+	public RoomTypeModel findOneByType(String type) {
+		String sql = "SELECT * FROM room_type WHERE type = ?";
+		List<RoomTypeModel> types = query(sql, new TypeMapper(), type);
+		return types.isEmpty() ? null : types.get(0);
+	}
+
 }

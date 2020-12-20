@@ -32,6 +32,10 @@ public class RoomService implements IRoomService {
 	@Override
 	public RoomModel save(RoomModel roomModel) {
 		roomModel.setCreatedDate(new Timestamp(System.currentTimeMillis()));
+		RoomTypeModel typeModel = typeDao.findOneByType(roomModel.getRoomType());
+		roomModel.setTypeId(typeModel.getId());
+		AddressModel addrModel = addrDao.findOneByStreet(roomModel.getAddrStreet());
+		roomModel.setAddressId(addrModel.getId());
 		Long roomId = roomDao.save(roomModel);
 		return roomDao.findOne(roomId);
 	}
@@ -42,6 +46,10 @@ public class RoomService implements IRoomService {
 		updateRoom.setCreatedDate(oldRoom.getCreatedDate());
 		updateRoom.setCreatedBy(oldRoom.getCreatedBy());
 		updateRoom.setModifiedDate(new Timestamp(System.currentTimeMillis()));
+		RoomTypeModel typeModel = typeDao.findOneByType(updateRoom.getRoomType());
+		updateRoom.setTypeId(typeModel.getId());
+		AddressModel addrModel = addrDao.findOneByStreet(updateRoom.getAddrStreet());
+		updateRoom.setAddressId(addrModel.getId());
 		roomDao.update(updateRoom);
 		return roomDao.findOne(updateRoom.getId());
 	}
@@ -68,6 +76,18 @@ public class RoomService implements IRoomService {
 		roomModel.setAddrStreet(addrModel.getStreet());
 		roomModel.setAddrCity(addrModel.getCity());
 		return roomModel;
+	}
+
+	@Override
+	public void updateSeen(Long id) {
+		roomDao.updateSeen(id);
+		
+	}
+
+	@Override
+	public void updateRating(int rating, Long id) {
+		roomDao.updateRating(rating, id);
+		
 	}
 	
 }
