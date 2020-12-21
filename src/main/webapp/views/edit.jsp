@@ -179,11 +179,11 @@
 									<div class="info-user">
 										<div class="info-user--name">
 											<label>Họ tên </label>
-											<input type="text" name="" value="admin">
+											<input type="text" name="" value="${USERMODEL.fullName }">
 										</div>
 										<div class="info-user--name">
 											<label>Số điện thoại </label>
-											<input type="text" name="" value="01234">
+											<input type="text" name="phone" value="${USERMODEL.phone }">
 										</div>
 									</div>
 								</div>
@@ -203,24 +203,52 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<script>
+		$(function() {
+	        $("#formPostRoom").validate({
+	            rules: {
+	            	description: "required",
+	                apartnumber: "required",
+	                street: "required",
+	                district: "required",
+	                city: "required",
+	                describe: "required",
+	                price: "required",
+	                area: "required",
+	                image: "required"
+	            },
+	            messages: {
+	            	description: "Bạn chưa nhập tiêu đề",
+	                apartnumber: "Bạn chưa nhập số nhà",
+	                street: "Bạn chưa nhập địa chỉ đường",
+	                district: "Bạn chưa nhập quận",
+	                city: "Bạn chưa nhập thành phố",
+	                describe: "Bạn chưa nhập mô tả",
+	                price: "Bạn chưa nhập giá cả",
+	                area: "Bạn chưa nhập diện tích",
+	                image: "Bạn chưa tải hình ảnh"
+	                //fullname: "Bạn chưa nhập họ tên",
+	                //phonenumber: "Bạn chưa nhập số điện thoại",
+	            },
+	            submitHandler: function(form) {
+	            	//e.preventDefault();
+	            	var data = {};
+	            	var formData = $('#formPostRoom').serializeArray();
+	            	formData.push({name: "seen", value: "0"});
+	            	formData.push({name: "rating", value: "5"});
+	            	$.each(formData, function(i,v){
+	            		data[""+v.name+""] = v.value;
+	            	})
+	            	console.log(data);
+	            	var id = $('#id').val();
+	            	if(id == ""){
+	            		addRoom(data);
+	            	} else{
+	            		updateRoom(data);
+	            	}
+	            }
+	        });
+	    });
         
-        $('#btnSubmitRoom').click(function(e){
-        	e.preventDefault();
-        	var data = {};
-        	var formData = $('#formPostRoom').serializeArray();
-        	formData.push({name: "seen", value: "0"});
-        	formData.push({name: "rating", value: "5"});
-        	$.each(formData, function(i,v){
-        		data[""+v.name+""] = v.value;
-        	})
-        	console.log(data);
-        	var id = $('#id').val();
-        	if(id == ""){
-        		addRoom(data);
-        	} else{
-        		updateRoom(data);
-        	}
-        })
         function addRoom(data){
         	$.ajax({
         		url: '${roomApi}',

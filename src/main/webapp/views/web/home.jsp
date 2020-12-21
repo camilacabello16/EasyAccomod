@@ -17,7 +17,7 @@
 							<div class="wp-form-search">
 								<div class="select-form">
 									<label>Loại tin</label>
-									<select>
+									<select id="typeRoom">
 										<c:forEach var="type" items="${types.listResult}">
 											<option>${type.name}</option>
 										</c:forEach>
@@ -43,7 +43,7 @@
 								</div>
 								<div class="select-form">
 									<label>Đường phố</label>
-									<select>
+									<select id="streetRoom">
 										<option>Tất cả</option>
 										<c:forEach var="location" items="${locations.listResult}">
 											<option>${location.street}</option>
@@ -52,35 +52,36 @@
 								</div>
 								<div class="select-form">
 									<label>Khoảng giá</label>
-									<select>
+									<select id="priceRoom">
 										<option>Chọn mức giá</option>
-										<option>Dưới 1 triệu</option>
-										<option>1 triệu - 2 triệu</option>
-										<option>2 triệu - 3 triệu</option>
-										<option>3 triệu - 4 triệu</option>
-										<option>4 triệu - 5 triệu</option>
-										<option>5 triệu - 6 triệu</option>
-										<option>6 triệu - 7 triệu</option>
-										<option>7 triệu - 8 triệu</option>
-										<option>8 triệu - 9 triệu</option>
-										<option>9 triệu - 10 triệu</option>
-										<option>Trên 10 triệu</option>
+										<option value="1">Dưới 1 triệu</option>
+										<option value="2">1 triệu - 2 triệu</option>
+										<option value="3">2 triệu - 3 triệu</option>
+										<option value="4">3 triệu - 4 triệu</option>
+										<option value="5">4 triệu - 5 triệu</option>
+										<option value="6">5 triệu - 6 triệu</option>
+										<option value="7">6 triệu - 7 triệu</option>
+										<option value="8">7 triệu - 8 triệu</option>
+										<option value="9">8 triệu - 9 triệu</option>
+										<option value="10">9 triệu - 10 triệu</option>
+										<option value="11">Trên 10 triệu</option>
 									</select>
 								</div>
 								<div class="select-form">
 									<label>Diện tích</label>
-									<select>
+									<select id="areaRoom">
 										<option>Chọn diện tích</option>
-										<option>Dưới 20 m²</option>
-										<option>20m² - 30m²</option>
-										<option>30m² - 40m²</option>
-										<option>40m² - 50m²</option>
-										<option>Trên 50m²</option>
+										<option value="20">Dưới 20m²</option>
+										<option value="30">20m² - 30m²</option>
+										<option value="40">30m² - 40m²</option>
+										<option value="50">40m² - 50m²</option>
+										<option value="60">Trên 50m²</option>
 									</select>
 								</div>
 							</div>
 							<div class="btn-search">
-								<button type="submit">Tìm</button>
+								<!--  <button type="submit">Tìm</button>-->
+								<a href="/easy-accomod-jdbc/trang-chu?type=${roomType}&street=${streetRoom}&price=${priceRoom}&area=${areaRoom}" id="btnSearch">Tìm</a>
 							</div>
 						</form>
 					</div>
@@ -105,5 +106,17 @@
 			</div>
 		</div>
 	</main>
+	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script type="text/javascript">
+		$('#btnSearch').click(function(){
+			var roomType = $('#typeRoom').val();
+			var streetRoom = $('#streetRoom').val();
+			var priceRoom = $('#priceRoom').val();
+			var areaRoom = $('#areaRoom').val();
+			console.log(roomType);
+		})
+		
+		
+	</script>
 </body>
 </html>

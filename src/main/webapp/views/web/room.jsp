@@ -40,10 +40,10 @@
 									<p><span>Ngày hết hạn: </span>18/11/2020</p>
 								</div>
 								<div class="room-inf--detail__item">
-									<p><span>Người đăng: </span>Đức non nớt</p>
+									<p><span>Người đăng: </span>${room.createdBy }</p>
 								</div>
 								<div class="room-inf--detail__item">
-									<p><span>Điện thoại: </span>0123456789</p>
+									<p><span>Điện thoại: </span>${room.phone }</p>
 								</div>
 								<div class="room-inf--detail__item">
 									<p><span>Diện tích: </span>${room.area}</p>

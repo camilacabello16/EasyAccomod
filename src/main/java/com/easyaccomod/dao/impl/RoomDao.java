@@ -66,4 +66,10 @@ public class RoomDao extends AbstractDao<RoomModel> implements IRoomDao {
 		update(sql, rating, id);
 	}
 
+	@Override
+	public List<RoomModel> searchRoom(Long roomType, String addrStreet, int price, int area) {
+		String sql = "SELECT * FROM room JOIN address ON room.addressid = address.id WHERE room.typeid=? AND address.street=? AND room.price>=? AND room.price<=? AND room.area>=? AND room.area<=?";
+		return query(sql, new RoomMapper(), roomType, addrStreet, price-1, price, area-10, area);
+	}
+
 }

@@ -61,6 +61,18 @@ ul{
     transition: 0.4s;
     font-size: 18px;
 }
+.btn-search{
+		background-color: #E79E9E;
+    border-radius: 5px;
+}
+.btn-search a{
+
+    padding: 5px 20px;
+    outline: none;
+    color: #fff;
+    transition: 0.4s;
+    font-size: 18px;
+}
 .btn-search {
     margin-top: 20px;
 }

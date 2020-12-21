@@ -89,5 +89,10 @@ public class RoomService implements IRoomService {
 		roomDao.updateRating(rating, id);
 		
 	}
+
+	@Override
+	public List<RoomModel> searchRoom(Long roomType, String addrStreet, int price, int area) {
+		return roomDao.searchRoom(roomType, addrStreet, price, area);
+	}
 	
 }
