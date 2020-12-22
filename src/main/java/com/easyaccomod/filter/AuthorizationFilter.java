@@ -33,7 +33,7 @@ public class AuthorizationFilter implements Filter {
 		if (url.startsWith("/easy-accomod-jdbc/admin")) {
 			UserModel user = (UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL");
 			if(user != null) {
-				if(user.getRole().getRoleCode().equals("ADMIN")) {
+				if(user.getRole().getRoleCode().equals("ADMIN") || user.getRole().getRoleCode().equals("COMPANY")) {
 					chain.doFilter(request, response);
 				} else if(user.getRole().getRoleCode().equals("USER")) {
 					resp.sendRedirect(req.getContextPath() + "/dang-nhap?action=login&message=not_permission");

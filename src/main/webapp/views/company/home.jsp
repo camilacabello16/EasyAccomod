@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
+<c:url var="roomApi" value="/api-admin-room"/>
+<c:url var="redirectUrl" value="/admin-home"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,10 +48,10 @@
 						  </div>
 						  <div class="wp-btn-post">
 							<div class="btn-post">
-								<a href="">Thêm tài khoản</a>
+								<a href="">Sửa tài khoản</a>
 							</div>
 							<div class="btn-delete">
-								<button type="button">Xóa tài khoản</button>
+								<button id="btnDelete" type="button">Xóa tài khoản</button>
 							</div>
 						</div>
                     </div>
@@ -59,7 +61,7 @@
 						</div>
 						<div class="wp-btn-post wp-btn-post-com">
 							<div class="btn-post">
-								<a href="">Đăng phòng</a>
+								<a href="<c:url value='/admin-home?type=edit' />">Đăng phòng</a>
 							</div>
 							<div class="btn-delete">
 								<button type="button">Xóa phòng</button>
@@ -69,7 +71,7 @@
 							<c:forEach var="room" items="${rooms.listResult }">
 								<div class="ad-room-item">
 									<div class="ckhbox-del">
-										<input type="checkbox" name="">
+										<input type="checkbox" name="" id="checkbox_${room.id}" value="${room.id}">
 									</div>
 									<div class="wp-ad-room-info">
 										<div class="ad-room-info">
@@ -90,7 +92,11 @@
 											</div>
 										</div>
 										<div class="btn-edit-room">
-											<a href="">Cập nhật</a>
+											<c:url var="editUrl" value="/admin-home">
+												<c:param name="type" value="edit" />
+												<c:param name="id" value="${room.id}" />
+											</c:url>
+											<a href="${editUrl }">Cập nhật</a>
 										</div>
 									</div>
 								</div>
@@ -101,5 +107,30 @@
 			</div>
 		</div>
 	</main>
+	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script>
+		$('#btnDelete').click(function(){
+			var data = {};
+			var ids = $('.ckhbox-del input[type=checkbox]:checked').map(function () {
+	            return $(this).val();
+	        }).get();
+			data['ids'] = ids;
+			deleteRoom(data);
+		})
+		function deleteRoom(data){
+        	$.ajax({
+        		url: '${roomApi}',
+        		type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
+	</script>
 </body>
 </html>

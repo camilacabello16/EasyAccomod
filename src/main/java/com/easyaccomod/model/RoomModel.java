@@ -1,6 +1,8 @@
 package com.easyaccomod.model;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomModel extends AbstractModel<RoomModel> {
 	private Long addressId;
@@ -27,6 +29,7 @@ public class RoomModel extends AbstractModel<RoomModel> {
 	private String addrDistrict;
 	private String addrStreet;
 	private String addrCity;
+	private List<RoomModel> listRoom = new ArrayList<>();
 	
 	public String getRoomType() {
 		return roomType;
@@ -171,6 +174,12 @@ public class RoomModel extends AbstractModel<RoomModel> {
 	}
 	public void setAddrCity(String addrCity) {
 		this.addrCity = addrCity;
+	}
+	public List<RoomModel> getListRoom() {
+		return listRoom;
+	}
+	public void setListRoom(List<RoomModel> listRoom) {
+		this.listRoom = listRoom;
 	}
 
 	

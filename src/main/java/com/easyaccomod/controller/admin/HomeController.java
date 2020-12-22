@@ -50,11 +50,11 @@ public class HomeController extends HttpServlet {
 			req.setAttribute("cities", cityService.findAll());
 			view = "/views/edit.jsp";
 		} else if(type == null) {
-			
-			view="/views/admin/home.jsp";
-			
+			roomModel.setListResult(roomService.findAll());
+			roomModel.setListRoom(roomService.findBySeen());
+			view = "/views/admin/home.jsp";
 		}
-		roomModel.setListResult(roomService.findAll());
+
 		req.setAttribute("rooms", roomModel);
 		RequestDispatcher rd = req.getRequestDispatcher(view);
 		rd.forward(req, resp);

@@ -18,4 +18,5 @@ public interface IRoomService {
 	void updateSeen(Long id);
 	void updateRating(int rating, Long id);
 	List<RoomModel> searchRoom(Long roomType, String addrStreet, int price, int area);
+	List<RoomModel> findBySeen();
 }

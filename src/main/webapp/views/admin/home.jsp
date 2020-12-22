@@ -62,6 +62,36 @@
 							</c:forEach>
 						</div>
 					</div>
+					<div class="admin-page" style="margin-top: 20px;">
+						<div class="title-admin">
+							<p>Danh sách các phòng có lượt xem nhiều nhất</p>
+						</div>
+						<div class="admin-room">
+							<c:forEach var="room" items="${rooms.listRoom }">
+								<div class="ad-room-item">
+									<div class="wp-ad-room-info">
+										<div class="ad-room-info">
+											<div class="img-admin-room">
+												<img src="<c:url value='${room.image }'/>">
+												
+											</div>
+											<div class="ad-room-txt">
+												<p class="ad-room-txt--name">${room.description }</p>
+												<p><span>Giá:</span> ${room.price } triệu/tháng</p>
+												<p><span>Địa chỉ:</span> ${room.addressId }</p>
+												<c:if test="${room.status == 1 }">
+													<p><span>Trạng thái:</span> Còn phòng</p>
+												</c:if>
+												<c:if test="${room.status == 0 }">
+													<p><span>Trạng thái:</span> Hết phòng</p>
+												</c:if>
+											</div>
+										</div>
+									</div>
+								</div>
+							</c:forEach>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

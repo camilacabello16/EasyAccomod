@@ -72,4 +72,10 @@ public class RoomDao extends AbstractDao<RoomModel> implements IRoomDao {
 		return query(sql, new RoomMapper(), roomType, addrStreet, price-1, price, area-10, area);
 	}
 
+	@Override
+	public List<RoomModel> findBySeen() {
+		String sql = "SELECT * FROM room ORDER BY seen desc limit 5";
+		return query(sql, new RoomMapper());
+	}
+
 }

@@ -1232,3 +1232,12 @@ ul{
 .dis-none{
 	display: none;
 }
+.title-detail{
+	display: flex;
+    justify-content: space-between;
+}
+.seen-detail{
+	font-size: 17px!important;
+	color: #999;
+	font-weight: 100!important;
+}

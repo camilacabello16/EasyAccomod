@@ -98,6 +98,7 @@
 									<p class="room-txt--price">${room.price} triệu/tháng</p>
 									<p class="room-txt--size">${room.area}m²</p>
 									<!--  <p class="room-txt--addr">${room.addressId}</p> -->
+									<p class="seen-detail">Lượt xem: ${room.seen }</p>
 								</div>
 							</div>
 						</c:forEach>

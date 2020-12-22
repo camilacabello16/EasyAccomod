@@ -15,8 +15,9 @@
 			<div class="container">
 				<div class="row">
 					<div class="room-page">
-						<div class="title-room">
+						<div class="title-room title-detail">
 							<p>${room.description}</p>
+							<p class="seen-detail">Lượt xem: ${room.seen }</p>
 						</div>
 						<div class="room-inf">
 							<div class="room-inf--img">

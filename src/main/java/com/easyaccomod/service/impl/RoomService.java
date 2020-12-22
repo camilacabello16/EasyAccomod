@@ -94,5 +94,10 @@ public class RoomService implements IRoomService {
 	public List<RoomModel> searchRoom(Long roomType, String addrStreet, int price, int area) {
 		return roomDao.searchRoom(roomType, addrStreet, price, area);
 	}
+
+	@Override
+	public List<RoomModel> findBySeen() {
+		return roomDao.findBySeen();
+	}
 	
 }
