@@ -15,6 +15,7 @@ public class AddressMapper implements RowMapper<AddressModel> {
 			address.setDistrict(resultSet.getString("district"));
 			address.setCityId(resultSet.getLong("cityid"));
 			address.setStreet(resultSet.getString("street"));
+			address.setStreetCode(resultSet.getString("streetcode"));
 			return address;
 		} catch (SQLException e) {
 			return null;

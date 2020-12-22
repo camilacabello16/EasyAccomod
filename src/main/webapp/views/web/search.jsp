@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trang chủ</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<main>
@@ -110,28 +110,5 @@
 			</div>
 		</div>
 	</main>
-	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
-	<script type="text/javascript">
-		$('#btnSearch').click(function(e){
-			var typeRoom = $('#typeRoom').val();
-			var streetRoom = $('#streetRoom').val();
-			var priceRoom = $('#priceRoom').val();
-			var areaRoom = $('#areaRoom').val();
-			console.log(typeRoom);
-			if(streetRoom == "Tất cả"){
-				streetRoom = "";
-			}
-			
-			//$(function(){
-				$('#type').val(typeRoom);
-				$('#street').val(streetRoom);
-				$('#price').val(priceRoom);
-				$('#area').val(areaRoom);
-			//})
-		})
-			
-		
-		
-	</script>
 </body>
 </html>

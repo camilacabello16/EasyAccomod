@@ -110,7 +110,7 @@
 								<div class="form-edit--item">
 									<label class="title-form">Giá cả</label>
 									<div class="txt-validate">
-										<input type="text" name="price" placeholder="Tính theo tháng" value="${rooms.price }">
+										<input type="number" name="price" placeholder="Tính theo tháng" value="${rooms.price }">
 									</div>
 								</div>
 								<div class="form-edit--item">

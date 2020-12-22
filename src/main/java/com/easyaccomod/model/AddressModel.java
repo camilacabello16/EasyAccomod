@@ -5,6 +5,7 @@ public class AddressModel extends AbstractModel<AddressModel> {
 	private String district;
 	private Long cityId;
 	private String city;
+	private String streetCode;
 	public String getCity() {
 		return city;
 	}
@@ -28,6 +29,12 @@ public class AddressModel extends AbstractModel<AddressModel> {
 	}
 	public void setCityId(Long cityId) {
 		this.cityId = cityId;
+	}
+	public String getStreetCode() {
+		return streetCode;
+	}
+	public void setStreetCode(String streetCode) {
+		this.streetCode = streetCode;
 	}
 	
 }
