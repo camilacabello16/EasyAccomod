@@ -1241,3 +1241,102 @@ ul{
 	color: #999;
 	font-weight: 100!important;
 }
+
+/* CHATBOX */
+.wp-icon-chatbox {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 70px;
+    height: 70px;
+    background-color: #fff;
+    border-radius: 100px;
+    line-height: 80px;
+    text-align: center;
+	cursor: pointer;
+	z-index: 1;
+}
+.icon-chatbox svg {
+    color: #e79e9e;
+    font-size: 30px;
+}
+.chatbox {
+    position: fixed;
+    bottom: 30px;
+    right: 110px;
+    width: 215px;
+    border: 1px solid #ffe6ee;
+    border-radius: 10px;
+    background-color: #fff;
+	height: 300px;
+	display: none;
+	z-index: 1;
+}
+.chatbox-header {
+    display: flex;
+    justify-content: space-between;
+	border-bottom: 1px solid #999;
+	padding: 10px;
+	height: 50px;
+}
+.chatbox-header--name {
+    font-weight: 600;
+}
+.chatbox-header--icon-close svg {
+    cursor: pointer;
+    font-size: 18px;
+}
+.chatbox-input {
+    padding: 10px;
+	border-top: 1px solid #999;
+	display: flex;
+	align-items: center;
+	height: 50px;
+}
+.chatbox-input input {
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+    margin-right: 5px;
+    border: 1px solid #e79e9e;
+}
+.btn-send-msg svg {
+    color: #e79e9e;
+}
+.btn-send-msg {
+    cursor: pointer;
+}
+.chatbox-body {
+	height: 200px;
+	padding: 10px;
+	overflow: scroll;
+}
+.content-chat {
+    position: relative;
+}
+.msg-received {
+    background-color: #e79e9e;
+    max-width: 100px;
+    border-radius: 4px;
+    padding-left: 6px;
+}
+.msg-received p{
+	color: #fff;
+}
+.msg-sent {
+    float: right;
+    right: 0;
+    background-color: #a8a4a5;
+    width: 100px;
+    text-align: right;
+    padding: 2px;
+    padding-right: 5px;
+    border-radius: 4px;
+}
+.msg-sent p {
+    color: #fff;
+    margin-bottom: 0px;
+}
+.open-chatbox{
+	display: block;
+}

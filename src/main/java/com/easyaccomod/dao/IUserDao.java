@@ -11,4 +11,5 @@ public interface IUserDao extends GenericDao<UserModel> {
 	void update(UserModel userModel);
 	void delete(long id);
 	UserModel findOne(Long id);
+	List<UserModel> findAdmin();
 }

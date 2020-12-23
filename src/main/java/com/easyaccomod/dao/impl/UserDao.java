@@ -48,4 +48,10 @@ public class UserDao extends AbstractDao<UserModel> implements IUserDao {
 		return users.isEmpty() ? null : users.get(0);
 	}
 
+	@Override
+	public List<UserModel> findAdmin() {
+		String sql = "SELECT * FROM user WHERE roleid = 1";
+		return query(sql, new UserMapper());
+	}
+
 }

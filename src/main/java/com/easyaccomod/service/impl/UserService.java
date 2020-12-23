@@ -42,6 +42,11 @@ public class UserService implements IUserService {
 		}
 	}
 
+	@Override
+	public List<UserModel> findAdmin() {
+		return userDao.findAdmin();
+	}
+
 
 
 }

@@ -33,7 +33,7 @@ public class HomeController extends HttpServlet {
 		req.setAttribute("rooms", roomModel);
 		
 		UserModel userModel = new UserModel();
-		userModel.setListResult(userService.findAll());
+		userModel.setListResult(userService.findAdmin());
 		req.setAttribute("users", userModel);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/views/company/home.jsp");

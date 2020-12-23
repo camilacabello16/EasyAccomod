@@ -10,4 +10,5 @@ public interface IUserService {
 	UserModel save(UserModel userModel);
 	UserModel update(UserModel userModel);
 	void delete(long[] ids);
+	List<UserModel> findAdmin();
 }

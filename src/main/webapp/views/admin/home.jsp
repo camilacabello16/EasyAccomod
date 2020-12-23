@@ -95,8 +95,40 @@
 				</div>
 			</div>
 		</div>
+		<div class="wp-icon-chatbox" id="iconChatbox">
+			<div class="icon-chatbox">
+				<i class="fas fa-comment-dots"></i>
+			</div>
+		</div>
+		<div class="chatbox" id="chatbox">
+			<div class="chatbox-header">
+				<div class="chatbox-header--name">
+					<p>Quản trị</p>
+				</div>
+				<div class="chatbox-header--icon-close" id="iconClose">
+					<i class="fas fa-times"></i>
+				</div>
+			</div>
+			<div class="chatbox-body">
+				<div class="content-chat">
+					<div class="msg-received">
+						<p>Hello</p>
+					</div>
+					<div class="msg-sent">
+						<p>Hello</p>
+					</div>
+				</div>
+			</div>
+			<div class="chatbox-input">
+				<input type=text>
+				<div class="btn-send-msg">
+					<i class="fas fa-paper-plane"></i>
+				</div>
+			</div>
+		</div>
 	</main>
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script src="<c:url value='/template/js/chatbox.js' />"></script>
 	<script>
 		$('#btnDelete').click(function(){
 			var data = {};
