@@ -5,6 +5,39 @@
 	version="3.0">
 	<display-name>easy accomod</display-name>
 	
+	<servlet>
+	    <description>This is the description of my app component</description>
+	    <display-name>This is the display name of my app component</display-name>
+	    <servlet-name>Chat</servlet-name>
+	    <servlet-class>com.easyaccomod.chat.Chat</servlet-class>
+	  </servlet>
+	
+	  <servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>ChatStore</servlet-name>
+	    <servlet-class>com.easyaccomod.chat.ChatStore</servlet-class>
+	  </servlet>
+	  <servlet>
+	    <description>This is the description of my J2EE component</description>
+	    <display-name>This is the display name of my J2EE component</display-name>
+	    <servlet-name>ReloadData</servlet-name>
+	    <servlet-class>com.easyaccomod.chat.ReloadData</servlet-class>
+	  </servlet>
+	  
+	   <servlet-mapping>
+	    <servlet-name>Chat</servlet-name>
+	    <url-pattern>/chat</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	    <servlet-name>ChatStore</servlet-name>
+	    <url-pattern>/chatstore</url-pattern>
+	  </servlet-mapping>
+	  <servlet-mapping>
+	    <servlet-name>ReloadData</servlet-name>
+	    <url-pattern>/reloaddata</url-pattern>
+	  </servlet-mapping>
+	
 	<listener>
         <listener-class>org.jboss.weld.environment.servlet.Listener</listener-class>
     </listener>

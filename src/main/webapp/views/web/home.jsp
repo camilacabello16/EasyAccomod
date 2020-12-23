@@ -119,7 +119,7 @@
 			var areaRoom = $('#areaRoom').val();
 			console.log(typeRoom);
 			if(streetRoom == "Tất cả"){
-				streetRoom = "";
+				streetRoom = "Đ";
 			}
 			if(priceRoom == "Chọn mức giá"){
 				priceRoom = 11;
