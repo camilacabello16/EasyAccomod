@@ -121,7 +121,12 @@
 			if(streetRoom == "Tất cả"){
 				streetRoom = "";
 			}
-			
+			if(priceRoom == "Chọn mức giá"){
+				priceRoom = 11;
+			}
+			if(areaRoom == "Chọn diện tích"){
+				areaRoom = 20;
+			}
 			//$(function(){
 				$('#type').val(typeRoom);
 				$('#street').val(streetRoom);

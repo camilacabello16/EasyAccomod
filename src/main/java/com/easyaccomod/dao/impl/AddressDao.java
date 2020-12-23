@@ -17,7 +17,7 @@ public class AddressDao extends AbstractDao<AddressModel> implements IAddressDao
 
 	@Override
 	public List<AddressModel> findAll() {
-		String sql = "SELECT * FROM address";
+		String sql = "SELECT distinct * FROM address";
 		return query(sql, new AddressMapper());
 	}
 
