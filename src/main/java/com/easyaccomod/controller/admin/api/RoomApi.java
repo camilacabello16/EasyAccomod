@@ -30,8 +30,7 @@ public class RoomApi extends HttpServlet {
 		req.setCharacterEncoding("UTF-8");
 		resp.setContentType("application/json");
 		RoomModel roomModel = HttpUtil.of(req.getReader()).toModel(RoomModel.class);
-		//roomModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getFullName());
-		roomModel.setCreatedBy("test");
+		roomModel.setCreatedBy(((UserModel) SessionUtil.getInstance().getValue(req, "USERMODEL")).getFullName());
 		roomModel = roomService.save(roomModel);
 		mapper.writeValue(resp.getOutputStream(), roomModel);
 	}

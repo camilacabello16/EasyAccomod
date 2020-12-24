@@ -114,7 +114,7 @@
 		<div class="chatbox" id="chatbox">
 			<div class="chatbox-header">
 				<div class="chatbox-header--name">
-					<p>Chủ nhà trọ</p>
+					<p>Danh sách quản trị</p>
 				</div>
 				<div class="chatbox-header--icon-close" id="iconClose">
 					<i class="fas fa-times"></i>
@@ -122,18 +122,13 @@
 			</div>
 			<div class="chatbox-body">
 				<div class="content-chat">
-					<div class="msg-received">
-						<p>Hello</p>
-					</div>
-					<div class="msg-sent">
-						<p>Hello</p>
-					</div>
-				</div>
-			</div>
-			<div class="chatbox-input">
-				<input type=text>
-				<div class="btn-send-msg">
-					<i class="fas fa-paper-plane"></i>
+					<ul class="list-admin-chat">
+						<c:forEach var="user" items="${users.listResult}">
+							<li>
+								<a href="<c:url value='/company-chat?id=${user.id}'/>">${user.fullName }</a>
+							</li>
+						</c:forEach>
+					</ul>
 				</div>
 			</div>
 		</div>

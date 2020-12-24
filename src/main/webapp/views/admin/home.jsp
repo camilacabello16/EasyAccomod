@@ -97,7 +97,9 @@
 		</div>
 		<div class="wp-icon-chatbox" id="iconChatbox">
 			<div class="icon-chatbox">
-				<i class="fas fa-comment-dots"></i>
+				<a href="<c:url value='/admin-chat?id=${USERMODEL.id}'/>">
+					<i class="fas fa-comment-dots"></i>
+				</a>
 			</div>
 		</div>
 		<div class="chatbox" id="chatbox">
@@ -128,7 +130,6 @@
 		</div>
 	</main>
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
-	<script src="<c:url value='/template/js/chatbox.js' />"></script>
 	<script>
 		$('#btnDelete').click(function(){
 			var data = {};

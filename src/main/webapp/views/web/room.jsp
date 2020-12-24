@@ -171,12 +171,10 @@
 			formAddCmt.push({name: "roomId", value: roomId});
 			formAddCmt.push({name: "content", value: content});
 			formRating.push({name: "rating", value: userRating});
-			console.log(formAddCmt);
-			console.log(formRating);
 			$.each(formAddCmt, function(i, v){
 				data[""+v.name+""] = v.value;
 			});
-			//addCmt(data);
+			addCmt(data);
 		})
 		function addCmt(data){
 			$.ajax({
