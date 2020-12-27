@@ -3,6 +3,7 @@
 <%@include file="/common/taglib.jsp" %>
 <c:url var="roomApi" value="/api-admin-room"/>
 <c:url var="redirectUrl" value="/admin-home"></c:url>
+<c:url var="reportApi" value="/api-report"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -41,7 +42,6 @@
 											<div class="ad-room-txt">
 												<p class="ad-room-txt--name">${room.description }</p>
 												<p><span>Giá:</span> ${room.price } triệu/tháng</p>
-												<p><span>Địa chỉ:</span> ${room.addressId }</p>
 												<c:if test="${room.status == 1 }">
 													<p><span>Trạng thái:</span> Còn phòng</p>
 												</c:if>
@@ -78,7 +78,6 @@
 											<div class="ad-room-txt">
 												<p class="ad-room-txt--name">${room.description }</p>
 												<p><span>Giá:</span> ${room.price } triệu/tháng</p>
-												<p><span>Địa chỉ:</span> ${room.addressId }</p>
 												<c:if test="${room.status == 1 }">
 													<p><span>Trạng thái:</span> Còn phòng</p>
 												</c:if>
@@ -90,6 +89,24 @@
 									</div>
 								</div>
 							</c:forEach>
+						</div>
+					</div>
+					<div class="wp-icon-bell">
+						<div class="icon-bell" id="iconBell">
+							<i class="fas fa-bell"></i>
+							<p class="nb-notice">${numberReport}</p>
+							<div class="wp-list-notice" id="listNotice">
+								<c:forEach var="report" items="${reports.listResult }">
+									<div class="list-notice">
+										<div class="wp-notice-content">
+											<a href="<c:url value='/admin-home?type=edit&id=${report.roomId}'/>">Phản hồi của người dùng</a>
+											<p class="notice-content">${report.content}</p>
+										</div>
+										<button type="button" class="btn-del-notice" id="btnDeleteReport">Xóa</button>
+										<input type="hidden" id="reportId" value="${report.id}">
+									</div>
+								</c:forEach>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -130,6 +147,7 @@
 		</div>
 	</main>
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script src="<c:url value='/template/js/notice.js' />"></script>
 	<script>
 		$('#btnDelete').click(function(){
 			var data = {};
@@ -142,6 +160,27 @@
 		function deleteRoom(data){
         	$.ajax({
         		url: '${roomApi}',
+        		type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
+		$('#btnDeleteReport').click(function(){
+			var data = {};
+			var reportid = $('#reportId').val();
+			console.log(reportid);
+			data['id'] = reportid;
+			deleteReport(data);
+		})
+		function deleteReport(data){
+        	$.ajax({
+        		url: '${reportApi}',
         		type: 'DELETE',
                 contentType: 'application/json',
                 data: JSON.stringify(data),

@@ -164,7 +164,8 @@
 								<div class="form-edit--item">
 									<label class="title-form">Hình ảnh</label>
 									<div class="txt-validate">
-										<input type="text" name="image" value="${rooms.image }">
+										<input type="file" name="Input Image" onChange='getoutput(event)'>
+										<br><input id="image" type="hidden" name="image" value="${rooms.image}" >
 									</div>
 								</div>
 								<div class="form-edit--item">
@@ -190,6 +191,7 @@
 								<div class="wp-btn-update">
 									<!--  <button type="submit" name="" id="btnSubmitRoom">Đăng phòng</button> -->
 									<input type="submit" id="btnSubmitRoom" value="Đăng phòng">
+									<input type="button" id="btnDeleteRoom" value="Xóa phòng" class="btn-delete-room-edit">
 								</div>
 							</div>
 							<input type="hidden" id="id" value="${rooms.id}" name="id">
@@ -203,6 +205,13 @@
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.validation/1.15.1/jquery.validate.min.js"></script>
 	<script>
+		function getoutput(event) {
+	
+	        name = event.target.files[0].name;
+	
+	        image.value = "images/" +  event.target.files[0].name;
+	
+	    }
 		$(function() {
 	        $("#formPostRoom").validate({
 	            rules: {
@@ -271,6 +280,28 @@
                 contentType: 'application/json',
                 data: JSON.stringify(data),
                 dataType: 'json',
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
+        $('#btnDeleteRoom').click(function(){
+			var data = {};
+			var ids = $('#id').map(function () {
+	            return $(this).val();
+	        }).get();
+			data['ids'] = ids;
+			deleteRoomReport(data);
+		})
+		function deleteRoomReport(data){
+        	$.ajax({
+        		url: '${roomApi}',
+        		type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
                 success: function (result) {
                 	window.location.href = "${redirectUrl}";
                 },

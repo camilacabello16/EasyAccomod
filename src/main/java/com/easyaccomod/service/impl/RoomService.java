@@ -6,6 +6,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import com.easyaccomod.dao.IAddressDao;
+import com.easyaccomod.dao.IReportDao;
 import com.easyaccomod.dao.IRoomDao;
 import com.easyaccomod.dao.ITypeDao;
 import com.easyaccomod.model.AddressModel;
@@ -23,6 +24,9 @@ public class RoomService implements IRoomService {
 	
 	@Inject
 	private IAddressDao addrDao;
+	
+	@Inject
+	private IReportDao reportDao;
 	
 	@Override
 	public List<RoomModel> findByType(Long typeId) {
@@ -57,6 +61,7 @@ public class RoomService implements IRoomService {
 	@Override
 	public void delete(long[] ids) {
 		for(long id: ids) {
+			//reportDao.delete(reportDao.findOne(id).getRoomId());
 			roomDao.delete(id);
 		}
 	}

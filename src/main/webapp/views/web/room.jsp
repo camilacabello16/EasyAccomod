@@ -3,6 +3,7 @@
 <%@include file="/common/taglib.jsp" %>
 <c:url var="cmtApi" value="/api-web-comment"/>
 <c:url var="redirectUrl" value="/chi-tiet-phong?id=${room.id}"></c:url>
+<c:url var="reportApi" value="/api-report"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,6 +54,9 @@
 									<p><span>Giá: </span>${room.price} triệu/tháng</p>
 								</div>
 							</div>
+						</div>
+						<div class="btn-report" id="btnReport">
+							<p>Báo lỗi</p>
 						</div>
 						<div class="room-des">
 							<div class="room-des--title">
@@ -139,9 +143,29 @@
 				</div>
 			</div>
 		</div>
+		<div class="insert-body" id="insertBody"></div>
+		<div class="form-report" id="formReport">
+			<form id="formSendReport">
+				<div class="form-report-header">
+					<div class="title-report">
+						<p>Gửi phản hồi về phòng</p>
+					</div>
+					<div class="icon-close-form" id="btnCloseForm">
+						<i class="fas fa-times"></i>
+					</div>
+				</div>
+				<div class="form-report-body">
+					<textarea placeholder="Nhập nội dung phản hồi..." id="reportContent"></textarea>
+				</div>
+				<div class="form-report-btn">
+					<button class="report-btn" id="btnSendReport">Gửi</button>
+				</div>
+			</form>
+		</div>
 	</main>
 	
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
+	<script src="<c:url value='/template/js/notice.js' />"></script>
 	<script type="text/javascript">
 		$('#btnAddCmt').click(function(e){
 			e.preventDefault();
@@ -179,6 +203,43 @@
 		function addCmt(data){
 			$.ajax({
 				url: '${cmtApi}',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function (result) {
+	            	window.location.href = "${redirectUrl}";
+	            },
+	            error: function (error) {
+	            	console.log(error);
+	            }
+			});
+		}
+		function getParameterByName(name, url) {
+		    if (!url) url = window.location.href;
+		    name = name.replace(/[\[\]]/g, "\\$&");
+		    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+		        results = regex.exec(url);
+		    if (!results) return null;
+		    if (!results[2]) return '';
+		    return decodeURIComponent(results[2].replace(/\+/g, " "));
+		}
+		$('#btnSendReport').click(function(e){
+			e.preventDefault();
+			var data = {};
+			var formSendReport = $('#formSendReport').serializeArray();
+			var reportContent = $('#reportContent').val();
+			var roomId = getParameterByName('id');
+			formSendReport.push({name: "content", value: reportContent});
+			formSendReport.push({name: "roomId", value: roomId});
+			$.each(formSendReport, function(i, v){
+				data[""+v.name+""] = v.value;
+			});
+			addReport(data);
+		})
+		function addReport(data){
+			$.ajax({
+				url: '${reportApi}',
 				type: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(data),
