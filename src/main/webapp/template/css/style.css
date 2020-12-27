@@ -1616,3 +1616,89 @@ ul{
 	background-color: #e58f8f;
 	transition: 0.3s;
 }
+
+/*PROFILE*/
+.profile-user {
+    width: 60%;
+    margin: 0 auto;
+}
+.wp-profile-page {
+    padding: 30px 0;
+    height: 60vh;
+    border-bottom: 1px solid #e79e9e;
+}
+.profile-table--title {
+    font-size: 16px;
+    font-weight: bold;
+}
+.btn-edit-profile {
+    float: right;
+}
+.btn-edit-profile {
+    float: right;
+    width: 60px;
+    height: 30px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #E79E9E;
+    cursor: pointer;
+    transition: 0.3s;
+    text-align: center;
+}
+.btn-edit-profile:hover{
+ 	background-color: #E79E9a;
+    transition: 0.3s;
+}
+.btn-edit-profile:hover {
+    background-color: #e18580;
+    transition: 0.3s;
+}
+.profile-table {
+    position: relative;
+}
+.profile-form-item {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    background-color: #FFE6EE;
+    z-index: 1;
+    width: 300px;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 4px;
+    opacity: 0;
+    visibility: hidden;
+}
+.profile-form-item input {
+    margin-bottom: 15px;
+    border: none;
+    padding: 10px;
+    outline: none;
+}
+.profile-form-item button {
+    margin: 0 auto;
+}
+.display-input-edit{
+	opacity: 1;
+    visibility: visible;
+}
+.btn-submit-change button {
+    width: 80px;
+    height: 35px;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #E79E9E;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.btn-submit-change button:hover{
+	background-color: #e18580;
+    transition: 0.3s;
+}
+.btn-submit-change{
+	margin-top: 20px;
+}

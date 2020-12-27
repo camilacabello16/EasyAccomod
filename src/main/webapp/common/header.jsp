@@ -16,7 +16,12 @@
 					<div class="wp-login">
 						<ul class="login-list">
 							<c:if test="${not empty USERMODEL }">
-								<li><a href="#">Xin chào, ${USERMODEL.fullName}</a></li>
+								<c:if test="${USERMODEL.roleId == 2}">
+									<li><a href="<c:url value='/thong-tin-nguoi-dung?id=${USERMODEL.id}'/>">Xin chào, ${USERMODEL.fullName}</a></li>
+								</c:if>
+								<c:if test="${USERMODEL.roleId != 2}">
+									<li><a href="#">Xin chào, ${USERMODEL.fullName}</a></li>
+								</c:if>
 								<li><a href="<c:url value='/thoat?action=logout' />">Thoát</a></li>
 							</c:if>
 							<c:if test="${empty USERMODEL }">

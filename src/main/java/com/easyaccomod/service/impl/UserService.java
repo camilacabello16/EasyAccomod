@@ -47,6 +47,11 @@ public class UserService implements IUserService {
 		return userDao.findAdmin();
 	}
 
+	@Override
+	public UserModel findOne(Long id) {
+		return userDao.findOne(id);
+	}
+
 
 
 }
