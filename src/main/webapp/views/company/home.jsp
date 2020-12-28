@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
 <c:url var="roomApi" value="/api-admin-room"/>
-<c:url var="redirectUrl" value="/admin-home"></c:url>
+<c:url var="userApi" value="/api-web-user"/>
+<c:url var="redirectUrl" value="/company-home"></c:url>
 <!DOCTYPE html>
 <html>
 <head>
@@ -36,11 +37,11 @@
 							    <tbody>
 							    	<c:forEach var="user" items="${users.listResult}">
 								      <tr>
-									    <td><input type="checkbox" name=""></td>
+									    <td><input type="checkbox" name="" value="${user.id}"></td>
 									    <td>${user.userName }</td>
 									    <td>${user.password }</td>
 									    <td>${user.fullName }</td>
-									    <td><a href="" class="acc-link">Sửa</a></td>
+									    <td><a href="<c:url value='/thong-tin-nguoi-dung?id=${user.id}'/>" class="acc-link">Sửa</a></td>
 									  </tr>
 								  	</c:forEach>
 							    </tbody>
@@ -64,7 +65,7 @@
 								<a href="<c:url value='/admin-home?type=edit' />">Đăng phòng</a>
 							</div>
 							<div class="btn-delete">
-								<button type="button">Xóa phòng</button>
+								<button type="button" id="btnDeleteRoom">Xóa phòng</button>
 							</div>
 						</div>
 						<div class="admin-room">
@@ -136,7 +137,7 @@
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
 	<script src="<c:url value='/template/js/chatbox.js' />"></script>
 	<script>
-		$('#btnDelete').click(function(){
+		$('#btnDeleteRoom').click(function(){
 			var data = {};
 			var ids = $('.ckhbox-del input[type=checkbox]:checked').map(function () {
 	            return $(this).val();
@@ -147,6 +148,29 @@
 		function deleteRoom(data){
         	$.ajax({
         		url: '${roomApi}',
+        		type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
+		$('#btnDelete').click(function(){
+			var data = {};
+			var ids = $('.list-acc--table input[type=checkbox]:checked').map(function () {
+	            return $(this).val();
+	        }).get();
+			data['ids'] = ids;
+			deleteAdmin(data);
+			console.log(data);
+		})
+		function deleteAdmin(data){
+        	$.ajax({
+        		url: '${userApi}',
         		type: 'DELETE',
                 contentType: 'application/json',
                 data: JSON.stringify(data),

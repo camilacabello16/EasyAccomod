@@ -13,11 +13,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.easyaccomod.model.AddressModel;
 import com.easyaccomod.model.CityModel;
+import com.easyaccomod.model.DistrictModel;
 import com.easyaccomod.model.RoomModel;
 import com.easyaccomod.model.RoomTypeModel;
 import com.easyaccomod.model.UserModel;
 import com.easyaccomod.service.IAddressService;
 import com.easyaccomod.service.ICityService;
+import com.easyaccomod.service.IDistrictService;
 import com.easyaccomod.service.IRoomService;
 import com.easyaccomod.service.ITypeService;
 import com.easyaccomod.service.IUserService;
@@ -43,6 +45,9 @@ public class HomeController extends HttpServlet {
 	
 	@Inject
 	private IUserService userService;
+	
+	@Inject
+	private IDistrictService districtService;
 	
 	ResourceBundle bundle = ResourceBundle.getBundle("message");
 
@@ -83,6 +88,10 @@ public class HomeController extends HttpServlet {
 			AddressModel addrModel = new AddressModel();
 			addrModel.setListResult(addrService.findAll());
 			req.setAttribute("locations", addrModel);
+			
+			DistrictModel districtModel = new DistrictModel();
+			districtModel.setListResult(districtService.findAll());
+			req.setAttribute("districts", districtModel);
 			
 			RequestDispatcher rd = req.getRequestDispatcher("/views/web/home.jsp");
 			rd.forward(req, resp);

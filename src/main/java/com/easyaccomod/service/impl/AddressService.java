@@ -18,4 +18,9 @@ public class AddressService implements IAddressService {
 		return addrDao.findAll();
 	}
 
+	@Override
+	public List<AddressModel> findDistrict() {
+		return addrDao.findDistrict();
+	}
+
 }

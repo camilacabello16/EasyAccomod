@@ -36,8 +36,8 @@
 									<label>Quận huyện</label>
 									<select>
 										<option>Tất cả</option>
-										<c:forEach var="location" items="${locations.listResult}">
-											<option>${location.district}</option>
+										<c:forEach var="district" items="${districts.listResult}">
+											<option>${district.districtName}</option>
 										</c:forEach>
 									</select>
 								</div>

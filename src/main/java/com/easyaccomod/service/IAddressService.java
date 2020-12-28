@@ -6,4 +6,5 @@ import com.easyaccomod.model.AddressModel;
 
 public interface IAddressService {
 	List<AddressModel> findAll();
+	List<AddressModel> findDistrict();
 }

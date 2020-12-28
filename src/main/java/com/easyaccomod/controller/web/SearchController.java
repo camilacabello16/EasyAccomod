@@ -12,10 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.easyaccomod.model.AddressModel;
 import com.easyaccomod.model.CityModel;
+import com.easyaccomod.model.DistrictModel;
 import com.easyaccomod.model.RoomModel;
 import com.easyaccomod.model.RoomTypeModel;
 import com.easyaccomod.service.IAddressService;
 import com.easyaccomod.service.ICityService;
+import com.easyaccomod.service.IDistrictService;
 import com.easyaccomod.service.IRoomService;
 import com.easyaccomod.service.ITypeService;
 
@@ -35,6 +37,9 @@ public class SearchController extends HttpServlet {
 	
 	@Inject
 	private ICityService cityService;
+	
+	@Inject
+	private IDistrictService districtService;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -75,6 +80,10 @@ public class SearchController extends HttpServlet {
 		AddressModel addrModel = new AddressModel();
 		addrModel.setListResult(addrService.findAll());
 		req.setAttribute("locations", addrModel);
+		
+		DistrictModel districtModel = new DistrictModel();
+		districtModel.setListResult(districtService.findAll());
+		req.setAttribute("districts", districtModel);
 		
 		RequestDispatcher rd = req.getRequestDispatcher("/views/web/search.jsp");
 		rd.forward(req, resp);

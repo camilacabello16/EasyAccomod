@@ -9,4 +9,5 @@ public interface IAddressDao extends GenericDao<AddressModel> {
 	AddressModel findOne(long id);
 	AddressModel findOneByDistrictAndStreet(String district, String street);
 	AddressModel findOneByStreet(String street);
+	List<AddressModel> findDistrict();
 }

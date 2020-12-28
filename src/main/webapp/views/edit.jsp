@@ -53,15 +53,15 @@
 											<select>
 												<c:if test="${empty rooms.addrDistrict}">
 													<option>Chọn quận</option>
-													<c:forEach var="addr" items="${addr}">
-														<option>${addr.district}</option>
+													<c:forEach var="district" items="${districts}">
+														<option>${district.districtName}</option>
 													</c:forEach>
 												</c:if>
 												<c:if test="${not empty rooms.addrDistrict}">
 													<option>Chọn quận</option>
-													<c:forEach var="addr" items="${addr}">
-														<option value="${addr.district}" <c:if test="${addr.district == rooms.addrDistrict}">selected="selected"</c:if>>
-															${addr.district}
+													<c:forEach var="district" items="${districts}">
+														<option value="${district.districtName}" <c:if test="${district.districtName == rooms.addrDistrict}">selected="selected"</c:if>>
+															${district.districtName}
 														</option>
 													</c:forEach>
 												</c:if>

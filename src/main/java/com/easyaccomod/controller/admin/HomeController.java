@@ -14,6 +14,7 @@ import com.easyaccomod.model.ReportModel;
 import com.easyaccomod.model.RoomModel;
 import com.easyaccomod.service.IAddressService;
 import com.easyaccomod.service.ICityService;
+import com.easyaccomod.service.IDistrictService;
 import com.easyaccomod.service.IReportService;
 import com.easyaccomod.service.IRoomService;
 import com.easyaccomod.service.ITypeService;
@@ -38,6 +39,9 @@ public class HomeController extends HttpServlet {
 	
 	@Inject
 	private IReportService reportService;
+	
+	@Inject
+	private IDistrictService districtService;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -54,6 +58,7 @@ public class HomeController extends HttpServlet {
 			req.setAttribute("types", typeService.findAll());
 			req.setAttribute("addr", addrService.findAll());
 			req.setAttribute("cities", cityService.findAll());
+			req.setAttribute("districts", districtService.findAll());
 			view = "/views/edit.jsp";
 		} else if(type == null) {
 			roomModel.setListResult(roomService.findAll());

@@ -44,5 +44,10 @@ public class AddressDao extends AbstractDao<AddressModel> implements IAddressDao
 		List<AddressModel> addrs = query(sql, new AddressMapper(), street);
 		return addrs.isEmpty() ? null : addrs.get(0);
 	}
+	
+	public List<AddressModel> findDistrict(){
+		String sql = "SELECT distinct district FROM address";
+		return query(sql, new AddressMapper());
+	}
 
 }
