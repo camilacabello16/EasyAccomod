@@ -30,10 +30,11 @@
 							      </tr>
 							      <tr>
 							        <td class="profile-table--title">Mật khẩu</td>
-							        <td>${user.password}</td>
+							        <td>******</td>
 							        <td>
 							        	<button class="btn-edit-profile" id="editPass">Sửa</button>
 							        </td>
+							        
 							      </tr>
 							      <tr>
 							        <td class="profile-table--title">Họ và tên</td>
@@ -51,13 +52,16 @@
 							      </tr>
 							    </tbody>
 							 </table>
+							 <input type="hidden" value="${user.password}" id="oldPassUser"/>
 							 <form id="formUpdateUser">
 						 		<div class="profile-form-item" id="inpUserName">
 						 			<input type="text" placeholder="Nhập tên đăng nhập..." id="updateUserName" value="${user.userName}"/>
 						 			<div class="btn-edit-profile" id="closeInpUser">Sửa</div>
 						 		</div>
 						 		<div class="profile-form-item" id="inpPass">
-						 			<input type="text" placeholder="Nhập mật khẩu mới..." id="updatePass" value="${user.password}"/>
+						 			<input style="margin-bottom: 10px;" type="password" placeholder="Nhập mật khẩu cũ..." id="oldPass" value=""/>
+						 			<p id="notMatchPass"></p>
+						 			<input type="password" placeholder="Nhập mật khẩu mới..." id="updatePass" value=""/>
 						 			<div class="btn-edit-profile" id="closeInpPass">Sửa</div>
 						 		</div>
 						 		<div class="profile-form-item" id="inpFullName">
@@ -77,6 +81,7 @@
 							</form>
 						</div>
 					</div>
+					<div class="insert-body" id="insertBody"></div>
 				</div>
 			</div>
 		</div>
