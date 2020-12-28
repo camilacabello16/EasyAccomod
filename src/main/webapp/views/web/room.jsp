@@ -4,6 +4,7 @@
 <c:url var="cmtApi" value="/api-web-comment"/>
 <c:url var="redirectUrl" value="/chi-tiet-phong?id=${room.id}"></c:url>
 <c:url var="reportApi" value="/api-report"/>
+<c:url var="likeRoomApi" value="/api-like-room"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,8 +56,16 @@
 								</div>
 							</div>
 						</div>
-						<div class="btn-report" id="btnReport">
-							<p>Báo lỗi</p>
+						<div class="wp-btn-report">
+							<div class="btn-report" id="btnReport">
+								<p>Báo lỗi</p>
+							</div>
+							<form id="formSaveLikeRoom">
+								<div class="btn-report btn-save-room" id="btnSaveRoom">
+									<p>Lưu</p>
+									<i class="fas fa-check" id="saveIcon"></i>
+								</div>
+							</form>
 						</div>
 						<div class="room-des">
 							<div class="room-des--title">
@@ -240,6 +249,35 @@
 		function addReport(data){
 			$.ajax({
 				url: '${reportApi}',
+				type: 'POST',
+				contentType: 'application/json',
+				data: JSON.stringify(data),
+				dataType: 'json',
+				success: function (result) {
+	            	window.location.href = "${redirectUrl}";
+	            },
+	            error: function (error) {
+	            	console.log(error);
+	            }
+			});
+		}
+		$('#btnSaveRoom').click(function(e){
+			e.preventDefault();
+			var data = {};
+			var formSaveLikeRoom = $('#formSaveLikeRoom').serializeArray();
+			var roomId = $('#roomId').val();
+			var userId = $('#userId').val();
+			formSaveLikeRoom.push({name: "userId", value: userId});
+			formSaveLikeRoom.push({name: "roomId", value: roomId});
+			$.each(formSaveLikeRoom, function(i, v){
+				data[""+v.name+""] = v.value;
+			});
+			addLikeRoom(data);
+			console.log(data);
+		})
+		function addLikeRoom(data){
+			$.ajax({
+				url: '${likeRoomApi}',
 				type: 'POST',
 				contentType: 'application/json',
 				data: JSON.stringify(data),

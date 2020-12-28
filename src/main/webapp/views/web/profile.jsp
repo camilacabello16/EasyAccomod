@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@include file="/common/taglib.jsp" %>
 <c:url var="userApi" value="/api-web-user"/>
+<c:url var="likeRoomApi" value="/api-like-room"/>
 <c:url var="redirectUrl" value="/thong-tin-nguoi-dung?id=${USERMODEL.id}"></c:url>
 <!DOCTYPE html>
 <html>
@@ -81,6 +82,23 @@
 							</form>
 						</div>
 					</div>
+					<div class="wp-like-room-list" id="iconLikeList">
+						<i class="fas fa-home"></i>
+						<p class="nb-like-list">${likeListSize}</p>
+						<div class="like-list" id="likeList">
+							<c:forEach var="likeList" items="${likeLists.listResult}">
+								<div class="like-list-item">
+									<c:forEach var="listRoom" items="${listRooms.listResult}">
+										<c:if test="${listRoom.id == likeList.roomId }">
+											<a href="<c:url value="/chi-tiet-phong?id=${likeList.roomId}"/>" class="like-list-title" id="likeTitle">${listRoom.description}</a>
+										</c:if>
+									</c:forEach>
+									<button type="button" id="btnDeleteLikeRoom">Xóa</button>
+									<input type="hidden" value="${likeList.id}" id="likeRoomId">
+								</div>
+							</c:forEach>
+						</div>
+					</div>
 					<div class="insert-body" id="insertBody"></div>
 				</div>
 			</div>
@@ -88,6 +106,7 @@
 	</main>
 	<script src="<c:url value='/template/vendor/jquery-3.5.1.min.js' />"></script>
 	<script src="<c:url value='/template/js/updateUser.js' />"></script>
+	<script type="text/javascript" src="<c:url value='/template/js/likelist.js'/>"></script>
 	<script type="text/javascript">
 		$('#btnChangeUser').click(function(e){
 			e.preventDefault();
@@ -126,6 +145,26 @@
 	            }
 			});
 		}
+		$('#btnDeleteLikeRoom').click(function(){
+			var data = {};
+			var likeRoomId = $('#likeRoomId').val();
+			data['id'] = likeRoomId;
+			deleteLikeRoom(data);
+		})
+		function deleteLikeRoom(data){
+        	$.ajax({
+        		url: '${likeRoomApi}',
+        		type: 'DELETE',
+                contentType: 'application/json',
+                data: JSON.stringify(data),
+                success: function (result) {
+                	window.location.href = "${redirectUrl}";
+                },
+                error: function (error) {
+                	console.log(error);
+                }
+        	})
+        }
 	</script>
 </body>
 </html>

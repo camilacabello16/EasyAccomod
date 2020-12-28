@@ -5,19 +5,19 @@
 	<div class="wp-header">
 		<div class="container">
 			<div class="row">
-				<div class="col-xl-8 col-lg-8 col-md-7 col-sm-6 col-5">
+				<div class="col-xl-7 col-lg-7 col-md-7 col-sm-6 col-5">
 					<div class="wp-menu">
 						<ul class="menu-list">
 							<li><a href="/easy-accomod-jdbc/trang-chu">Trang chủ</a></li>
 						</ul>
 					</div>
 				</div>
-				<div class="col-xl-4 col-lg-4 col-md-5 col-sm-6 col-7">
+				<div class="col-xl-5 col-lg-5 col-md-5 col-sm-6 col-7">
 					<div class="wp-login">
 						<ul class="login-list">
 							<c:if test="${not empty USERMODEL }">
 								<c:if test="${USERMODEL.roleId == 2}">
-									<li><a href="<c:url value='/thong-tin-nguoi-dung?id=${USERMODEL.id}'/>">Xin chào, ${USERMODEL.fullName}</a></li>
+									<li><a href="<c:url value='/thong-tin-nguoi-dung?id=${USERMODEL.id}'/>">${USERMODEL.fullName}</a></li>
 								</c:if>
 								<c:if test="${USERMODEL.roleId != 2}">
 									<li><a href="#">Xin chào, ${USERMODEL.fullName}</a></li>

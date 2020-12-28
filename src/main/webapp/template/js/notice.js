@@ -12,3 +12,7 @@ $('#btnCloseForm').click(function(){
     $('#insertBody').removeClass("open-notice");
 	$('#formReport').removeClass("open-notice");
 })
+
+$('#btnSaveRoom').click(function(){
+	$('#saveIcon').addClass("open-notice");
+})
