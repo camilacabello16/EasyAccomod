@@ -66,7 +66,7 @@
 						<div class="title-admin">
 							<p>Danh sách các phòng có lượt xem nhiều nhất</p>
 						</div>
-						<div class="admin-room">
+						<div class="admin-room list-high-view">
 							<c:forEach var="room" items="${rooms.listRoom }">
 								<div class="ad-room-item">
 									<div class="wp-ad-room-info">

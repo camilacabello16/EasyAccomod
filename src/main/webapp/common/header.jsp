@@ -20,7 +20,7 @@
 									<li><a href="<c:url value='/thong-tin-nguoi-dung?id=${USERMODEL.id}'/>">${USERMODEL.fullName}</a></li>
 								</c:if>
 								<c:if test="${USERMODEL.roleId != 2}">
-									<li><a href="#">Xin chào, ${USERMODEL.fullName}</a></li>
+									<li><a href="#">${USERMODEL.fullName}</a></li>
 								</c:if>
 								<li><a href="<c:url value='/thoat?action=logout' />">Thoát</a></li>
 							</c:if>
@@ -28,7 +28,6 @@
 								<li><a href="<c:url value='/dang-nhap?action=login' />">Đăng nhập</a></li>
 								<li><a href="<c:url value='/dang-ky?action=signup' />">Đăng ký</a></li>
 							</c:if>
-							
 						</ul>
 					</div>
 				</div>

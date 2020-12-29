@@ -283,7 +283,7 @@
 				data: JSON.stringify(data),
 				dataType: 'json',
 				success: function (result) {
-	            	window.location.href = "${redirectUrl}";
+					
 	            },
 	            error: function (error) {
 	            	console.log(error);

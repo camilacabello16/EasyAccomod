@@ -675,6 +675,20 @@ ul{
     padding: 20px 20px;
     border-radius: 5px;
     margin-top: 20px;
+    overflow-y: scroll;
+    height: 800px;
+}
+.admin-room::-webkit-scrollbar-thumb {
+  background: #bbbbbb;
+  border-radius: 10px;
+}
+.list-high-view{
+    overflow-y: hidden;
+    height: 93%;
+}
+
+.admin-room::-webkit-scrollbar {
+  width: 5px;
 }
 .ad-room-txt {
     margin-left: 20px;
@@ -1645,7 +1659,7 @@ ul{
     display: flex;
 	align-items: center;
 	justify-content: space-between;
-    padding: 10px;
+    padding: 18px;
     border: 1px solid #ffe6ee;
 }
 .notice-content {
@@ -1881,5 +1895,29 @@ ul{
 	}
 	.icon-chatbox svg{
 		font-size: 23px;
+	}
+	.form-report{
+		padding: 15px;
+	    display: none;
+	    width: 90%;
+	}
+	.profile-form-item{
+	    padding: 25px 20px;
+	    width: 90%;
+	}
+	.notice-content{
+	    margin-top: -13px;
+	}  
+	.list-high-view {
+	    height: 95%;
+	}
+	.wp-chat-form{
+		height: 530px;
+	}
+	.chat-body {
+    	height: 391px;
+	}
+	.chatbox{
+		right:60px;
 	}
 }
