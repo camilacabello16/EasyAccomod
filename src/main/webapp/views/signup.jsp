@@ -60,11 +60,28 @@
 		$.validator.addMethod("validatePassword", function(value, element) {
 	        return this.optional(element) || /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,16}$/i.test(value);
 	    }, "Hãy nhập password từ 8 đến 16 ký tự bao gồm chữ hoa, chữ thường và ít nhất một chữ số");
+		$.validator.addMethod("validUsername", function(value, element) {
+            return /^[a-zA-Z0-9_.-]+$/.test(value);
+        }, "Tên đăng nhập không hợp lệ");
+		$.validator.addMethod("validPhone", function(value, element) {
+            return /^[0][1-9][0-9]+$/.test(value);
+        }, "Số điện thoại không hợp lệ");
         $('#formSignup').validate({
             rules: {
-            	userName: "required",
+            	userName: {
+            		required:true,
+            		validUsername:true,
+            		minlength: 8,
+            		maxlength: 16
+            	},
             	fullName: "required",
-                phone: "required",
+            	phone: { 
+					required: true, 
+					validPhone:true,
+					number : true,  
+					maxlength: 10,
+					minlength: 10,
+				},
                 password: {
                     required: true,
                     validatePassword: true,
@@ -77,8 +94,19 @@
             },
             messages: {
             	fullName: "Bạn chưa nhập họ và tên",
-                userName: "Bạn chưa nhập tên đăng nhập",
-                phone: "bạn chưa nhập số điện thoại",
+            	userName: {
+                	required: "Bạn chưa nhập tên đăng nhập",
+                	validUsername: "Tên đăng nhập không hợp lệ",
+                	minlength: "Tên đăng nhập phải chứa ít nhất 6 kí tự",
+                	maxlength: "Tên đăng nhập phải chứa không quá 16 kí tự"
+                },
+                phone: {
+                	required: "Bạn chưa nhập số điện thoại",
+					number : "Bạn nhập chưa đúng số điện thoại",
+					validPhone : "Số điện thoại không hợp lệ",
+					maxlength : "Số điện thoại bạn nhập quá dài",
+					minlength : "Số điện thoại bạn nhập quá ngắn"
+                },
                 password: {
                     required: "Bạn chưa nhập mật khẩu",
                     minlength: "Yêu cầu mật khẩu dài hơn 8 kí tự",

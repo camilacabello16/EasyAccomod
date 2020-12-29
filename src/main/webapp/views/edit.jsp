@@ -30,19 +30,19 @@
 									<p class="title-form">Địa chỉ</p>
 									<div class="wp-input">
 										<div class="inp-item">
-											<label>Đường</label>
-											<select name="addrStreet">
-												<c:if test="${empty rooms.addrStreet}">
-													<option>Chọn đường</option>
-													<c:forEach var="addr" items="${addr}">
-														<option>${addr.street }</option>
+											<label>Thành phố</label>
+											<select>
+												<c:if test="${empty rooms.addrCity}">
+													<option>Chọn thành phố</option>
+													<c:forEach var="city" items="${cities}">
+														<option>${city.city }</option>
 													</c:forEach>
 												</c:if>
-												<c:if test="${not empty rooms.addrStreet}">
-													<option>Chọn đường</option>
-													<c:forEach var="addr" items="${addr}">
-														<option value="${addr.street}" <c:if test="${addr.street == rooms.addrStreet}">selected="selected"</c:if>>
-															${addr.street}
+												<c:if test="${not empty rooms.addrCity}">
+													<option>Chọn thành phố</option>
+													<c:forEach var="city" items="${cities}">
+														<option value="${city.city}" <c:if test="${city.city == rooms.addrCity}">selected="selected"</c:if>>
+															${city.city }
 														</option>
 													</c:forEach>
 												</c:if>
@@ -68,19 +68,19 @@
 											</select>
 										</div>
 										<div class="inp-item">
-											<label>Thành phố</label>
-											<select>
-												<c:if test="${empty rooms.addrCity}">
-													<option>Chọn thành phố</option>
-													<c:forEach var="city" items="${cities}">
-														<option>${city.city }</option>
+											<label>Đường</label>
+											<select name="addrStreet">
+												<c:if test="${empty rooms.addrStreet}">
+													<option>Chọn đường</option>
+													<c:forEach var="addr" items="${addr}">
+														<option>${addr.street }</option>
 													</c:forEach>
 												</c:if>
-												<c:if test="${not empty rooms.addrCity}">
-													<option>Chọn thành phố</option>
-													<c:forEach var="city" items="${cities}">
-														<option value="${city.city}" <c:if test="${city.city == rooms.addrCity}">selected="selected"</c:if>>
-															${city.city }
+												<c:if test="${not empty rooms.addrStreet}">
+													<option>Chọn đường</option>
+													<c:forEach var="addr" items="${addr}">
+														<option value="${addr.street}" <c:if test="${addr.street == rooms.addrStreet}">selected="selected"</c:if>>
+															${addr.street}
 														</option>
 													</c:forEach>
 												</c:if>
@@ -164,7 +164,7 @@
 								<div class="form-edit--item">
 									<label class="title-form">Hình ảnh</label>
 									<div class="txt-validate">
-										<input type="file" name="Input Image" onChange='getoutput(event)'>
+										<input type="file" name="inputimage" onChange='getoutput(event)' value="${rooms.image}">
 										<br><input id="image" type="text" name="image" value="${rooms.image}" >
 									</div>
 								</div>
@@ -212,24 +212,82 @@
 	        image.value = "images/" +  event.target.files[0].name;
 	
 	    }
-		
-		$('#btnSubmitRoom').click(function(e){
-			e.preventDefault();
-        	var data = {};
-        	var formData = $('#formPostRoom').serializeArray();
-        	formData.push({name: "seen", value: "0"});
-        	formData.push({name: "rating", value: "5"});
-        	$.each(formData, function(i,v){
-        		data[""+v.name+""] = v.value;
-        	})
-        	console.log(data);
-        	var id = $('#id').val();
-        	if(id == ""){
-        		addRoom(data);
-        	} else{
-        		updateRoom(data);
-        	}
-		})
+	  	$.validator.addMethod("validArea", function(value, element, arg){
+		     return arg !== value;
+	    }, "Diện tích phải lớn hơn 0");
+		$.validator.addMethod("validPrice", function(value, element, arg) {
+			return arg !== value;
+	    }, "Giá cả phải lớn hơn 0");
+		$.validator.addMethod("validnumberRoom", function(value, element, arg) {
+			return arg !== value;
+	    }, "Số phòng phải lớn hơn 0");	
+	      $("#formPostRoom").validate({
+	          rules: {
+	          	description: "required",
+	              apartnumber: "required",
+	              street: "required",
+	              district: "required",
+	              city: "required",
+	              describe: "required",
+	              price: {
+	              	required: true,
+	              	validPrice: "0",
+	              	number: true
+	              },
+	              numberOfRoom:{
+	              	required: true,
+	              	validnumberRoom:"0",
+	              	number: true,
+	              },
+	              area: {
+	              	required: true,
+	              	validArea:"0",
+	              	number: true,
+	              },
+	              image: "required"
+	          },
+	          messages: {
+	          	description: "Bạn chưa nhập tiêu đề",
+	              apartnumber: "Bạn chưa nhập số nhà",
+	              street: "Bạn chưa nhập địa chỉ đường",
+	              district: "Bạn chưa nhập quận",
+	              city: "Bạn chưa nhập thành phố",
+	              describe: "Bạn chưa nhập mô tả",
+	              price:{
+	              	required: "Bạn chưa nhập giá cả",
+	              	validPrice:"Giá cả phải lớn hơn 0",
+	              	number:"Giá cả bạn nhập không hợp lệ"
+	              },
+	              area:{
+	              	required: "Bạn chưa nhập diện tích",
+	              	validArea:"Diện tích phải lớn hơn 0",
+	              	number:"Diện tích bạn nhập không hợp lệ"
+	              },
+	              numberOfRoom:{
+	              	required: "Bạn chưa nhập số phòng",
+	              	validnumberRoom:"Số phòng phải lớn hơn 0",
+	              	number:"Số phòng bạn nhập không hợp lệ"
+	              },
+	              image: "Bạn chưa tải hình ảnh"
+	          },
+	          submitHandler: function(form) {
+	          	//e.preventDefault();
+	          	var data = {};
+	          	var formData = $('#formPostRoom').serializeArray();
+	          	formData.push({name: "seen", value: "0"});
+	          	formData.push({name: "rating", value: "5"});
+	          	$.each(formData, function(i,v){
+	          		data[""+v.name+""] = v.value;
+	          	})
+	          	console.log(data);
+	          	var id = $('#id').val();
+	          	if(id == ""){
+	          		addRoom(data);
+	          	} else{
+	          		updateRoom(data);
+	          	}
+	          }
+	      });
         
         function addRoom(data){
         	$.ajax({
